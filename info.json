@@ -1,0 +1,17 @@
+{
+    "name": "Parmjeet Mishra",
+    "title": "FrontEnd Developer",
+    "email": "iamparmjeetmishra@gmail.com",
+    "socials": {
+        "linkedin": "https://www.linkedin.com/in/iamparmjeet",
+        "github": "https://github.com/iamparmjeetmishra",
+        "twitter": "https://twitter.com/iamparmjeet"
+    },
+    "location": "Ludhiana, Punjab",
+    "cvLink": "https://rxresu.me/iamparmjeetmishra/react",
+    "aboutMe": {
+        "para1": "I am passionate about crafting dynamic and responsive user interfaces that seamlessly enhance the overall user experience. With a keen eye for detail and a deep understanding of React's component-based architecture, I take pride in creating modular and maintainable code that fosters scalability.",
+        "para2": "My proficiency extends to state management, routing, and leveraging the latest features of React to build efficient and performant applications. I am dedicated to staying abreast of industry trends and best practices, ensuring that my skills are always aligned with the latest advancements in front-end development.",
+        "para3": "My collaborative mindset allows me to work seamlessly with cross-functional teams, turning complex design concepts into interactive and visually appealing web applications. In the fast-evolving world of web development, I am committed to continuous learning and refining my expertise to deliver cutting-edge solutions."
+    }
+}

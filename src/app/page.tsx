@@ -1,113 +1,120 @@
 import Image from 'next/image'
 
+import info from '../../info.json'
+
+import { HiOutlineColorSwatch } from "react-icons/hi";
+import { FaCode } from "react-icons/fa";
+import { VscGraph } from "react-icons/vsc";
+import { IoLogoFigma } from "react-icons/io5";
+
+
+import AboutBox from '../components/ui/AboutBox'
+import SkillBtn from '../components/ui/SkillBtn'
+
+
+
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <section>
+    {/* First Section */}
+    <div className="flex items-center gap-5">
+      <h2 className="text-3xl font-bold">About Me</h2>
+      <span className=" rounded-full h-1 w-36 bg-gradient-to-r from-twOg-100 to-twOg-200"></span>
+    </div>
+    <div className="grid grid-cols-12 gap-4 pt-4 md:pt-[30px] items-center ">
+      <div className="col-span-12 ">{info.aboutMe.para1}</div>
+      <div className="col-span-12 ">{info.aboutMe.para2}</div>
+      <div className="col-span-12 ">{info.aboutMe.para3}</div>
+    </div>
+    <section className='py-12'>
+      <h2 className="text-3xl mb-6 font-bold">What I do!</h2>
+      <div className='grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-2 '>
+        <AboutBox iconColor={''} icon={<HiOutlineColorSwatch />} title='Ui/Ux Design' text="I value simple content structure, clean design patterns and thoughtful interactions." />
+        <AboutBox icon={<FaCode />} iconColor="text-blue-500" title='Web Development' text="I like to code things from scratch, and enjoy bringing ideas to life in the browser." />
+        <AboutBox icon={<IoLogoFigma />} iconColor="text-purple-400" title='Design Conversion' text="Efficiently transforming designs from Adobe XD/Figma into various frameworks, such as React and Wordpress, for successful implementation." />
+        <AboutBox icon={<VscGraph />} iconColor="text-green-400" title='Performance & SEO' text="Optimize the website for speed and accessibility, ensuring it is easily discoverable and caters to a broad audience." />
+      </div>
+    </section>
+    <section>
+      <h2 className="text-3xl mb-6 font-bold ">My Skills</h2>
+      <div className='grid lg:grid-cols-2 gap-4'>
+        <div className='lg:col-span-2 border border-white/10 rounded-lg p-4'>
+          <h3 className='text-lg font-semibold mb-4'>FrontEnd Skills</h3>
+          <div className='flex gap-4 flex-wrap'>
+            <SkillBtn title="HTML5" />
+            <SkillBtn title="CSS3" />
+            <SkillBtn title="Javascript" />
+            <SkillBtn title="SCSS" />
+            <SkillBtn title="Bootstrap" />
+            <SkillBtn title="TailwindCSS" />
+            <SkillBtn title="Custom Sites" />
+          </div>
+        </div>
+        <div className='lg:col-span-2 border border-white/10 rounded-lg p-4'>
+          <h3 className='text-lg font-semibold mb-4'>FrontEnd Library</h3>
+          <div className='flex gap-4 flex-wrap'>
+            <SkillBtn title="React" />
+            <SkillBtn title="Responsive Design" />
+            <SkillBtn title="State Management" />
+            <SkillBtn title="Redux" />
+            <SkillBtn title="Redux-toolkit" />
+            <SkillBtn title="Form Development" />
+            <SkillBtn title="Formik" />
+            <SkillBtn title="React Form Hook" />
+            <SkillBtn title="Components" />
+            <SkillBtn title="Props" />
+            <SkillBtn title="React Router" />
+            <SkillBtn title="JSON" />
+            <SkillBtn title="API" />
+            <SkillBtn title="Axios" />
+            <SkillBtn title="React Query" />
+          </div>
+        </div>
+        <div className='border border-white/10 rounded-lg p-4'>
+          <h3 className='text-lg font-semibold mb-4'>Version Control</h3>
+          <div className='flex gap-4 flex-wrap'>
+            <SkillBtn title="GIT" />
+            <SkillBtn title="GitHub" />
+          </div>
+        </div>
+        <div className='border border-white/10 rounded-lg p-4'>
+          <h3 className='text-lg font-semibold mb-4'>Deployment</h3>
+          <div className='flex gap-4 flex-wrap'>
+            <SkillBtn title="cPanel" />
+            <SkillBtn title="Vercel" />
+            <SkillBtn title="Netlify" />
+            <SkillBtn title="Digital Ocean" />
+          </div>
+        </div>
+        <div className='border border-white/10 rounded-lg p-4'>
+          <h3 className='text-lg font-semibold mb-4'>CMS</h3>
+          <div className='flex gap-4 flex-wrap'>
+            <SkillBtn title="WordPress" />
+            <SkillBtn title="Site Optimisation" />
+            <SkillBtn title="Speed Improvement" />
+            <SkillBtn title="Built from Scratch" />
+            <SkillBtn title="Elementor" />
+            <SkillBtn title="Gutenberg" />
+            <SkillBtn title="Virus Removal" />
+            <SkillBtn title="Security" />
+            <SkillBtn title="Plugins Installation" />
+          </div>
+        </div>
+        <div className=' border border-white/10 rounded-lg p-4'>
+          <h3 className='text-lg font-semibold mb-4'>Currently Learning</h3>
+          <div className='flex gap-4 flex-wrap'>
+            <SkillBtn title="NextJS" />
+            <SkillBtn title="Express" />
+            <SkillBtn title="MongoDB" />
+            <SkillBtn title="Mongoose" />
+            <SkillBtn title="mySql" />
+            <SkillBtn title="React Cache" />
+            <SkillBtn title="Redis" />
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </section>
+  </section>
   )
 }
