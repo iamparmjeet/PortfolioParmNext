@@ -11,8 +11,9 @@ import Footer from "../components/pageComponents/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Parmjeet Portfolio ",
+  title: "Parmjeet Mishra | FrontEnd Developer ",
   description: "FrontEnd Developer",
+  keywords: "FrontEnd, Ludhiana, India, React, Reactjs, Nextjs, NextjsApp, Vercel, Portfolio, Website Designer, website",
 };
 
 export default function RootLayout({
