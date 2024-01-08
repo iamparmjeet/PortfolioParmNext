@@ -22,6 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+      <meta name="google-site-verification" content="k4IgcsXPZlXiSN5ifFqeYw4lHr60j8ibdH3k3HN4uDw" />
+      </head>
       <body className={`${inter.className} bg-black text-white`}>
         <section className="bg-homeBg container mx-auto min-h-screen bg-no-repeat bg-center bg-cover bg-fixed bg-homeTwo Bg-dark md:pb-16 w-full">
           <Header />
