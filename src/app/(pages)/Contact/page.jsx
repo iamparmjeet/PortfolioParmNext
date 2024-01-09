@@ -1,4 +1,4 @@
-import Form from "/src/components/pageComponents/Form";
+import Form from "/src/components/pageComponents/Form.tsx";
 
 export default function Page() {
 return (
