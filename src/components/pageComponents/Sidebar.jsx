@@ -23,7 +23,7 @@ export default function Sidebar() {
                 src={Profile}
                 alt='Profile Pic'
                 className='w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[240px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px]'
-                loading='lazy'
+                loading='eager'
             />
             <div className='pt-[100px]'>
                 <h1 className='mt-6 text-3xl font-semibold  text-white'>Parmjeet Mishra</h1>

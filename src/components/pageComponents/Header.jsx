@@ -44,7 +44,12 @@ export default function Header()  {
                 <div className="p-4 ml-auto rounded-lg hidden lg:block  bg-[#111111]">
                     <Nav />
                 </div>
-                <button onClick={() => setToggleMenu(!toggleMenu)} className="lg:invisible visible opacity-100 bg-[#ef4060] w-10 h-10 rounded-full flex justify-center cursor-pointer items-center  text-white ">
+                <button
+                    onClick={() => setToggleMenu(!toggleMenu)} className="lg:invisible visible opacity-100 bg-[#ef4060] w-10 h-10 rounded-full flex justify-center cursor-pointer items-center  text-white "
+                    role='button'
+                    aria-label='mobile-menu'
+                    aria-labelledby='mobile-menu'
+                >
                     {toggleMenu
                         ? <IoMdClose onClick={() => setToggleMenu(true)} />
                         : <FaBarsStaggered onClick={() => setToggleMenu(false)} />

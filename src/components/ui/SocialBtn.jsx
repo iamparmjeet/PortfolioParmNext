@@ -16,6 +16,7 @@ export default function SocialBtn() {
                     href={info.socials.twitter}
                     target='noreferrer noopener'
                     className='p-3 flex bg-neutral-800/90 rounded-xl hover:bg-gradient-to-r from-twOg-100 to-twOg-200 hover:transition-background-color '
+                    aria-label="My Twitter Link"
                 >
                     <FaSquareXTwitter />
                 </a>
@@ -23,6 +24,7 @@ export default function SocialBtn() {
                     href={info.socials.linkedin}
                     target='noreferrer noopener'
                     className='p-3 flex bg-neutral-800/90 rounded-xl hover:bg-gradient-to-r from-twOg-100 to-twOg-200 hover:transition-background-color '
+                    aria-label="My Linkedin Link"
                 >
                     <FaLinkedin />
                 </a>
@@ -30,6 +32,7 @@ export default function SocialBtn() {
                     href={info.socials.github}
                     target='noreferrer noopener'
                     className='p-3 flex bg-neutral-800/90 rounded-xl hover:bg-gradient-to-r from-twOg-100 to-twOg-200 hover:transition-background-color '
+                    aria-label="My Github Link"
                 >
                     <FaGithub />
                 </a>
