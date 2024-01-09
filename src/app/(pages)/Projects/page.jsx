@@ -13,7 +13,7 @@ export default function Page() {
                     <h2 className="text-3xl font-bold">Projects</h2>
                     <span className=" rounded-full h-1 w-36 bg-gradient-to-r from-twOg-100 to-twOg-200"></span>
                 </div>
-                <p className='mb-8'>Here are some of published works.</p>
+                <p className='mb-8'>Here are some of my published works.</p>
                 <main className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     <ProjectCard src={Parmjeet} title='Parmjeet Mishra' desc='Nextjs Portfolio App' tags={'Nextjs | React | Zod | React-Hook-Form | Zod | Resend Email Api | TailwindCSS | Props | Components | App Router | Google Tag | CSP | '} git='https://github.com/iamparmjeetmishra/PortfolioParmNext' />
                     <ProjectCard src={Amarjeet} title='Amarjeet Mishra' desc='Nextjs Portfolio App' tags='React | Nextjs | VideoComponent [VidStack] | React-Hook-Form | Zod | Resend Email Api | TailwindCSS | Props | ' git='https://github.com/iamparmjeetmishra/PortfolioAmar' />
