@@ -38,7 +38,7 @@ export default function Form() {
             return
         }
         // toast error
-        console.log(result?.error)
+        // console.log(result?.error)
         toast.error('Something went wrong!')
     }
 
