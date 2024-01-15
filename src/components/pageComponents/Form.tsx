@@ -33,7 +33,7 @@ export default function Form() {
         const result = await sendEmail(data);
         if (result?.success) {
             console.log('Done', data)
-            toast.success('Email Sent')
+            toast.success('Email Sent.')
             reset();
             return
         }
@@ -86,6 +86,7 @@ export default function Form() {
             {isSubmitSuccessful && (
                 <h2 className='font-bold text-xl my-4  text-green-500'>Form Successfully submitted</h2>
             )}
+            {/* <button onClick={() => toast.success('Toast') } >Toast</button> */}
         </>
     )
 }
