@@ -8,7 +8,7 @@ export default function Footer() {
         <footer className="overflow-hidden rounded-b-2xl  bg-black">
             <div className="container">
                 <p className="text-center py-6 text-gray-lite text-color-910 ">
-                    © {year} All Rights Reserverd | Build By Parm
+                    © {year} All Rights Reserved | Made with ♡ by Parm
                 </p>
             </div>
         </footer>
