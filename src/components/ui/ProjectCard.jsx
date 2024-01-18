@@ -13,7 +13,7 @@ export default function ProjectCard({ src, href, title, desc, tags, git }) {
                     className=''
                 />
                 <div className='p-6 bg-black border-t border-gray-500 '>
-                    <a href={href} className='hover:cursor-pointer'>
+                    <a href={href} target='_blank' className='hover:cursor-pointer'>
                         <h3 className='text-xl font-bold mb-2' > {title}</h3>
                     </a>
                     <span className='mb-2 flex row-auto items-center justify-between '>

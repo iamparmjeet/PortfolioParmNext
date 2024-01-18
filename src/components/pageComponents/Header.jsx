@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import { IoSunnyOutline } from "react-icons/io5";
@@ -18,10 +18,24 @@ import Nav from "../ui/Nav"
 export default function Header()  {
     const [toggleMenu, setToggleMenu] = useState(false);
     const [animate] = useAutoAnimate()
+    const menuRef = useRef()
+   
+    useEffect(() => {
+        let handler = (e) => {
+            if (!menuRef.current.contains(e.target)) {
+                setToggleMenu(false);
+            }
+        }
+        document.addEventListener('click', handler)
+
+        return () => {
+            document.removeEventListener('click', handler)
+        }
+    })
 
     return (
         <>
-            <header ref={animate} className="container w-full flex items-center  bg-[#111111]  justify-between p-3  mt-4 sm:rounded-xl ">
+            <header ref={animate}  className="container w-full flex items-center  bg-[#111111]  justify-between p-3  mt-4 sm:rounded-xl ">
                 <div className="w-full flex justify-between px-4">
                     <Link href='/' >
                         <div className="flex items-center gap-3 ">
@@ -45,7 +59,9 @@ export default function Header()  {
                     <Nav />
                 </div>
                 <button
-                    onClick={() => setToggleMenu(!toggleMenu)} className="lg:invisible visible opacity-100 bg-[#ef4060] w-10 h-10 rounded-full flex justify-center cursor-pointer items-center  text-white "
+                    ref={menuRef}
+                    onClick={() => setToggleMenu(prev => !prev)}
+                    className="lg:invisible visible opacity-100 bg-[#ef4060] w-10 h-10 rounded-full flex justify-center cursor-pointer items-center  text-white "
                     role='button'
                     aria-label='mobile-menu'
                     aria-labelledby='mobile-menu'

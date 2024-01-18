@@ -2,6 +2,7 @@
 import Parmjeet from '/public/Images/parmjeetmishra.jpg'
 import Amarjeet from '/public/Images/amarjeetmishra.jpg'
 import NextEmail from '/public/Images/NextEmail.jpg'
+import NextLogin from '/public/Images/NextOtpLogin.jpg'
 
 import ProjectCard from '/src/components/ui/ProjectCard'
 //import TagBtn from '/src/components/ui/TagBtn'
@@ -41,6 +42,14 @@ export default function Page() {
                         desc="Nextjs Email App"
                         tags='Nextjs | Zod | React-Hook-Form | Form-Validation | Schema | Error | Toast Notification | Form Data Handling'
                         git='https://github.com/iamparmjeetmishra/NextEmail'
+                    />
+                    <ProjectCard
+                        src={NextLogin}
+                        href='https://nextloginwithotp.parmjeetmishra.com/'
+                        title='Next Login with OTP App'
+                        desc="Nextjs Login app with OTP. How UI works"
+                        tags='Nextjs | React | useRef | useEffect | useState |'
+                        git='https://github.com/iamparmjeetmishra/NextOtpLogin'
                     />
                 </main>
             </section>

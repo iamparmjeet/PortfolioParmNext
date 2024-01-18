@@ -35,7 +35,7 @@ export default function RootLayout({
               <Sidebar />
             </div>
             <div className="col-span-12 lg:col-span-8 ">
-              <div className="px-12 py-12 sm:px-5 md:px-10 lg:px-14 rounded-2xl bg-[#111111]">
+              <div className="px-8 py-12 md:px-12 lg:px-14 rounded-2xl bg-[#111111]">
                 {children}
               </div>
               <Footer />
