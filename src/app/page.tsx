@@ -1,4 +1,3 @@
-import Image from 'next/image'
 
 import info from '../../info.json'
 
@@ -85,6 +84,7 @@ export default function Home() {
             <SkillBtn title="Vercel" />
             <SkillBtn title="Netlify" />
             <SkillBtn title="Digital Ocean" />
+            <SkillBtn title="AWS" />
           </div>
         </div>
         <div className='border border-white/10 rounded-lg p-4'>
@@ -102,15 +102,18 @@ export default function Home() {
           </div>
         </div>
         <div className=' border border-white/10 rounded-lg p-4'>
-          <h3 className='text-lg font-semibold mb-4'>Currently Learning</h3>
+          <h3 className='text-lg font-semibold mb-4'>Backend</h3>
           <div className='flex gap-4 flex-wrap'>
             <SkillBtn title="NextJS" />
             <SkillBtn title="Express" />
+            <SkillBtn title="Hono" />
             <SkillBtn title="MongoDB" />
             <SkillBtn title="Mongoose" />
             <SkillBtn title="mySql" />
+            <SkillBtn title="Postgres" />
             <SkillBtn title="React Cache" />
-            <SkillBtn title="Redis" />
+            <SkillBtn title="Prisma" />
+            <SkillBtn title="Server Actions" />
           </div>
         </div>
       </div>
