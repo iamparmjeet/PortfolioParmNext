@@ -35,7 +35,7 @@ export default function Sidebar() {
                     <span
                         className="relative inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white transition-all duration-200 bg-gray-900 rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 "
                     >
-                        FrontEnd Developer
+                        FullStack React Developer
                     </span>
                 </div>
 

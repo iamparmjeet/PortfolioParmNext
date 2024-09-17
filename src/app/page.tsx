@@ -43,9 +43,9 @@ export default function Home() {
           <div className='flex gap-4 flex-wrap'>
             <SkillBtn title="HTML5" />
             <SkillBtn title="CSS3" />
-            <SkillBtn title="Javascript" />
-            <SkillBtn title="SCSS" />
             <SkillBtn title="Bootstrap" />
+            <SkillBtn title="Javascript" />
+            <SkillBtn title="Typescript" />
             <SkillBtn title="TailwindCSS" />
             <SkillBtn title="Custom Sites" />
           </div>
@@ -59,15 +59,46 @@ export default function Home() {
             <SkillBtn title="Redux" />
             <SkillBtn title="Redux-toolkit" />
             <SkillBtn title="Form Development" />
-            <SkillBtn title="Formik" />
             <SkillBtn title="React Form Hook" />
             <SkillBtn title="Components" />
             <SkillBtn title="Props" />
             <SkillBtn title="React Router" />
-            <SkillBtn title="JSON" />
+            <SkillBtn title="Zod" />
             <SkillBtn title="API" />
             <SkillBtn title="Axios" />
             <SkillBtn title="React Query" />
+          </div>
+          </div>
+          <div className='border border-white/10 rounded-lg p-4'>
+          <h3 className='text-lg font-semibold mb-4'>CMS</h3>
+          <div className='flex gap-4 flex-wrap'>
+            <SkillBtn title="WordPress" />
+            <SkillBtn title="Site Optimisation" />
+            <SkillBtn title="Speed Improvement" />
+            <SkillBtn title="Built from Scratch" />
+            <SkillBtn title="Elementor" />
+            <SkillBtn title="Elementor Pro" />
+            <SkillBtn title="Oxygen" />
+            <SkillBtn title="Gutenberg" />
+            <SkillBtn title="Virus Removal" />
+            <SkillBtn title="Security" />
+            <SkillBtn title="Plugins Installation" />
+            <SkillBtn title="ACF" />
+          </div>
+        </div>
+        <div className=' border border-white/10 rounded-lg p-4'>
+          <h3 className='text-lg font-semibold mb-4'>Backend</h3>
+          <div className='flex gap-4 flex-wrap'>
+            <SkillBtn title="NextJS" />
+            <SkillBtn title="Express" />
+            <SkillBtn title="Hono" />
+            <SkillBtn title="MongoDB" />
+            <SkillBtn title="Mongoose" />
+            <SkillBtn title="Postgres" />
+            <SkillBtn title="Prisma" />
+            <SkillBtn title="React Cache" />
+            <SkillBtn title="Server Actions" />
+            <SkillBtn title="Axios" />
           </div>
         </div>
         <div className='border border-white/10 rounded-lg p-4'>
@@ -85,37 +116,10 @@ export default function Home() {
             <SkillBtn title="Netlify" />
             <SkillBtn title="Digital Ocean" />
             <SkillBtn title="AWS" />
+            <SkillBtn title="Docker" />
           </div>
         </div>
-        <div className='border border-white/10 rounded-lg p-4'>
-          <h3 className='text-lg font-semibold mb-4'>CMS</h3>
-          <div className='flex gap-4 flex-wrap'>
-            <SkillBtn title="WordPress" />
-            <SkillBtn title="Site Optimisation" />
-            <SkillBtn title="Speed Improvement" />
-            <SkillBtn title="Built from Scratch" />
-            <SkillBtn title="Elementor" />
-            <SkillBtn title="Gutenberg" />
-            <SkillBtn title="Virus Removal" />
-            <SkillBtn title="Security" />
-            <SkillBtn title="Plugins Installation" />
-          </div>
-        </div>
-        <div className=' border border-white/10 rounded-lg p-4'>
-          <h3 className='text-lg font-semibold mb-4'>Backend</h3>
-          <div className='flex gap-4 flex-wrap'>
-            <SkillBtn title="NextJS" />
-            <SkillBtn title="Express" />
-            <SkillBtn title="Hono" />
-            <SkillBtn title="MongoDB" />
-            <SkillBtn title="Mongoose" />
-            <SkillBtn title="mySql" />
-            <SkillBtn title="Postgres" />
-            <SkillBtn title="React Cache" />
-            <SkillBtn title="Prisma" />
-            <SkillBtn title="Server Actions" />
-          </div>
-        </div>
+        
       </div>
     </section>
   </section>
