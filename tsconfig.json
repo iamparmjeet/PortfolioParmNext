@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/form/route.js", "react-email-starter/emails/contact-form.tsx", "src/app/_actions.ts", "src/components/pageComponents/Form.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/form/route.js", "react-email-starter/emails/contact-form.tsx", "src/app/_actions.ts", "src/components/pageComponents/Form.jsx", "src/lib/providers.js"],
   "exclude": ["node_modules"]
 }
