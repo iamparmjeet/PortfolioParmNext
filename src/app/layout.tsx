@@ -12,7 +12,7 @@ import { CSPostHogProvider } from "@/lib/providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Parmjeet Mishra | FrontEnd Developer ",
+	title: "Parmjeet Mishra | FullStack Developer ",
 	description: "FullStack Developer",
 	keywords:
 		"FrontEnd, Fullstack, Full-stack, Parm Ludhiana, India, React, Reactjs, Nextjs, NextjsApp, Vercel, Portfolio, Website Designer, website",
