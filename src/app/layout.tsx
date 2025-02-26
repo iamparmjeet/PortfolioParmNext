@@ -12,9 +12,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Parmjeet Mishra | FrontEnd Developer ",
-	description: "FrontEnd Developer",
+	description: "FullStack Developer",
 	keywords:
-		"FrontEnd, Ludhiana, India, React, Reactjs, Nextjs, NextjsApp, Vercel, Portfolio, Website Designer, website",
+		"FrontEnd, Fullstack, Full-stack, Parm Ludhiana, India, React, Reactjs, Nextjs, NextjsApp, Vercel, Portfolio, Website Designer, website",
 };
 
 export default function RootLayout({
