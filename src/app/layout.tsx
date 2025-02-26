@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next";
 
 import Header from "../components/pageComponents/Header";
 import Sidebar from "../components/pageComponents/Sidebar";
@@ -48,6 +49,7 @@ export default function RootLayout({
 					</section>
 					<SpeedInsights />
 					<Toaster />
+					<Analytics />
 				</body>
 			</CSPostHogProvider>
 		</html>
