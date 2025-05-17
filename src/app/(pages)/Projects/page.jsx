@@ -27,7 +27,7 @@ export default function Page() {
                         title='Parmjeet Mishra'
                         desc='Nextjs Portfolio App'
                         tags={'Nextjs | React | Zod | React-Hook-Form | Zod | Resend Email Api | TailwindCSS | Props | Components | App Router | Google Tag | CSP | '}
-                        git='https://github.com/iamparmjeetmishra/PortfolioParmNext'
+                        git='https://github.com/iamparmjeet/PortfolioParmNext'
                     />
 
                     <ProjectCard
@@ -36,7 +36,7 @@ export default function Page() {
                         title='Amarjeet Mishra'
                         desc='Nextjs Portfolio App'
                         tags='React | Nextjs | VideoComponent [VidStack] | React-Hook-Form | Zod | Resend Email Api | TailwindCSS | Props | '
-                        git='https://github.com/iamparmjeetmishra/PortfolioAmar'
+                        git='https://github.com/iamparmjeet/PortfolioAmar'
                     />
                     <ProjectCard
                         src={NextEmail}
@@ -44,7 +44,7 @@ export default function Page() {
                         title='Next Email'
                         desc="Nextjs Email App"
                         tags='Nextjs | Zod | React-Hook-Form | Form-Validation | Schema | Error | Toast Notification | Form Data Handling'
-                        git='https://github.com/iamparmjeetmishra/NextEmail'
+                        git='https://github.com/iamparmjeet/NextEmail'
                     />
                     <ProjectCard
                         src={NextLogin}
@@ -52,7 +52,7 @@ export default function Page() {
                         title='Next Login with OTP App'
                         desc="Nextjs Login app with OTP. How UI works"
                         tags='Nextjs | React | useRef | useEffect | useState |'
-                        git='https://github.com/iamparmjeetmishra/NextOtpLogin'
+                        git='https://github.com/iamparmjeet/NextOtpLogin'
                     />
                     <ProjectCard
                         src={NextJobs}
@@ -60,7 +60,7 @@ export default function Page() {
                         title='nxtRmtJobs'
                         desc="nxtRmtJobs - Job Portal with with API fetching and caching"
                         tags='React-vite App | useState | React Query | Components Structure | useContext | Custom Hooks | Popups | Search and Filtering | LocalStorage'
-                        git='https://github.com/iamparmjeetmishra/NxtRmtDev'
+                        git='https://github.com/iamparmjeet/NxtRmtDev'
                     />
                     <ProjectCard
                         src={PetCare}
@@ -68,7 +68,7 @@ export default function Page() {
                         title='PetCare'
                         desc="PetCare-Manage your pet daycare with ease"
                         tags='NextJS | TailwindCSS | Components | Middleware | NextAuth | Postgres DB | Prisma ORM | Typescript | React-Query | Toast | Stripe | Webhooks'
-                        git='https://github.com/iamparmjeetmishra/PetCare'
+                        git='https://github.com/iamparmjeet/PetCare'
                     />
                     <ProjectCard
                         src={Evento}
@@ -76,7 +76,7 @@ export default function Page() {
                         title='Evento'
                         desc="Evento - Search your events"
                         tags='NextJS | TailwindCSS | Components | Postgres DB | Prisma ORM | Typescript | React-Query | Zod'
-                        git='https://github.com/iamparmjeetmishra/EventoV2'
+                        git='https://github.com/iamparmjeet/EventoV2'
                     />
                 </main>
             </section>
