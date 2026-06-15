@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
-    "@tabler/icons": "^3.44.0",
+    "@tabler/icons-react": "^3.44.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "motion": "^12.39.0",
@@ -25,11 +25,15 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "lefthook": "^2.1.9",
+    "shiki": "^4.1.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
