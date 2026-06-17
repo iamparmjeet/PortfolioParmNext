@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { JetBrains_Mono, Newsreader, Public_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { cn } from "@/lib/utils";
+import Footer from "@/components/layout/footer";
+import Nav from "@/components/layout/nav";
 
-// For - Headings, section labels, UI Text
-const syne = Syne({
+const newsreader = Newsreader({
 	subsets: ["latin"],
-	weight: ["400", "500", "600", "700", "800"],
-	variable: "--font-syne",
+	weight: ["400", "500", "600", "700"],
+	style: ["normal", "italic"],
+	variable: "--font-newsreader",
 	display: "swap",
 });
 
-// body font - p, description, UI body
-const dmSans = DM_Sans({
+const publicSans = Public_Sans({
 	subsets: ["latin"],
-	weight: ["400", "500", "600"],
-	variable: "--font-dm-sans",
+	weight: ["400", "500", "600", "700"],
+	style: ["normal", "italic"],
+	variable: "--font-public-sans",
+	display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+	subsets: ["latin"],
+	weight: ["400", "500", "700"],
+	variable: "--font-jetbrains-mono",
 	display: "swap",
 });
 
@@ -46,32 +53,24 @@ export const metadata: Metadata = {
 			"Full-Stack React Developer specializing in Next.js, TypeScript, and modern web applications.",
 		creator: "@iamparmjeet",
 	},
-	robots: {
-		index: true,
-		follow: true,
-	},
+	robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
 	children,
-}: Readonly<{
+}: {
 	children: React.ReactNode;
-}>) {
+}) {
 	return (
 		<html
 			lang="en"
-			className={cn(`
-				"h-full",
-				"antialiased" ${syne.variable} ${dmSans.variable}`)}
+			className={`${newsreader.variable} ${publicSans.variable} ${jetbrainsMono.variable}`}
 		>
-			<ThemeProvider
-				attribute="class"
-				defaultTheme="dark"
-				enableSystem
-				disableTransitionOnChange
-			>
-				<body className="min-h-full flex flex-col">{children}</body>
-			</ThemeProvider>
+			<body className="palette-noir font-newsreader">
+				<Nav />
+				{children}
+				<Footer />
+			</body>
 		</html>
 	);
 }
