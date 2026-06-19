@@ -48,7 +48,17 @@
 				"noUnknownAtRules": "off"
 			},
 			"correctness": {
-				"useExhaustiveDependencies": "info",
+				"useExhaustiveDependencies": {
+					"level": "info",
+					"options": {
+						"hooks": [
+							{
+								"name": "usePathname",
+								"stableResult": false
+							}
+						]
+					}
+				},
 				"noUnknownFunction": "off",
 				"noUnknownTypeSelector": "off"
 			},
