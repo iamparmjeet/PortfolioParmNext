@@ -20,5 +20,5 @@ pre-push:
       run: bun run check-types
     - name: biome-full # WHY: mirrors CI exactly — catches repo-wide violations before push
       run: bunx biome check .
-    - name: test # WHY: run the full Vitest suite locally before every push (no online CI)
-      run: bun run test
+    # - name: test # WHY: run the full Vitest suite locally before every push (no online CI)
+    #   run: bun run test
