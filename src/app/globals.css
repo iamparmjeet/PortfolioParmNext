@@ -1,260 +1,544 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
-/* ─── Dark Mode Variant ───────────────────────────── */
-@custom-variant dark (&:where(.dark, .dark *));
-
-/*
-  Philosophy: Deep warm-dark base, saffron accent,
-  cream typography. Editorial magazine on the web.
-
-  OKLCH format: oklch(lightness chroma hue)
-  - Lightness: 0 (black) → 1 (white)
-  - Chroma: 0 (grey) → 0.37+ (very saturated)
-  - Hue: 0-360 degrees (red=30, yellow=85, green=145, blue=240)
-*/
-
-:root {
-    /* ── Core Surfaces ── */
-    --background: oklch(0.11 0.008 80);
-    /* Deep warm near-black */
-    --foreground: oklch(0.93 0.015 85);
-    /* Warm cream white */
-
-    /* ── Cards / Elevated Surfaces ── */
-    --card: oklch(0.15 0.008 80);
-    /* Slightly lifted dark */
-    --card-foreground: oklch(0.93 0.015 85);
-
-    /* ── Popover / Overlays ── */
-    --popover: oklch(0.15 0.008 80);
-    --popover-foreground: oklch(0.93 0.015 85);
-
-    /* ── THE ACCENT: Saffron/Piccalilli Yellow ── */
-    /*    This is the ONE color that makes this design */
-    --primary: oklch(0.82 0.19 85);
-    /* Saffron yellow — signature */
-    --primary-foreground: oklch(0.11 0.008 80);
-    /* Dark text on yellow */
-
-    /* ── Secondary / Subtle Surfaces ── */
-    --secondary: oklch(0.20 0.008 80);
-    --secondary-foreground: oklch(0.93 0.015 85);
-
-    /* ── Muted / Disabled ── */
-    --muted: oklch(0.18 0.006 80);
-    --muted-foreground: oklch(0.55 0.012 80);
-    /* Warm grey for captions */
-
-    /* ── Accent (same as primary for now) ── */
-    --accent: oklch(0.82 0.19 85);
-    --accent-foreground: oklch(0.11 0.008 80);
-
-    /* ── Destructive (Error Red) ── */
-    --destructive: oklch(0.62 0.22 25);
-    --destructive-foreground: oklch(0.93 0.015 85);
-
-    /* ── Borders & Inputs ── */
-    --border: oklch(0.22 0.008 80);
-    --input: oklch(0.22 0.008 80);
-    --ring: oklch(0.82 0.19 85);
-    /* Focus ring = accent yellow */
-
-    /* ── Chart Colors (for any data viz) ── */
-    --chart-1: oklch(0.82 0.19 85);
-    /* Yellow */
-    --chart-2: oklch(0.70 0.18 160);
-    /* Teal */
-    --chart-3: oklch(0.65 0.20 25);
-    /* Coral */
-    --chart-4: oklch(0.75 0.15 280);
-    /* Purple */
-    --chart-5: oklch(0.72 0.18 200);
-    /* Blue */
-
-    /* ── Border Radius ── */
-    --radius: 0.375rem;
-    /* Subtle rounding — editorial */
-
-    /* ── Custom Tokens ── */
-    /* These are NOT shadcn — these are YOUR brand tokens */
-    --brand-yellow: oklch(0.82 0.19 85);
-    --brand-yellow-dim: oklch(0.70 0.16 85);
-    --section-number-color: oklch(0.35 0.01 80);
-    --editorial-line: oklch(0.25 0.008 80);
-}
-
-/* ─── Light Mode Overrides (if user switches) ──── */
-/* Note: Design 3 is primarily dark — light is secondary */
-.light {
-    --background: oklch(0.97 0.005 85);
-    --foreground: oklch(0.12 0.008 80);
-    --card: oklch(0.99 0.003 85);
-    --card-foreground: oklch(0.12 0.008 80);
-    --popover: oklch(0.99 0.003 85);
-    --popover-foreground: oklch(0.12 0.008 80);
-    --primary: oklch(0.65 0.19 85);
-    --primary-foreground: oklch(0.99 0.003 85);
-    --secondary: oklch(0.92 0.005 85);
-    --secondary-foreground: oklch(0.12 0.008 80);
-    --muted: oklch(0.93 0.004 85);
-    --muted-foreground: oklch(0.45 0.012 80);
-    --accent: oklch(0.65 0.19 85);
-    --accent-foreground: oklch(0.99 0.003 85);
-    --border: oklch(0.88 0.006 85);
-    --input: oklch(0.88 0.006 85);
-    --ring: oklch(0.65 0.19 85);
-    --section-number-color: oklch(0.75 0.008 80);
-    --editorial-line: oklch(0.85 0.006 85);
-}
-
-/* ─── Map to Tailwind @theme ──────────────────────── */
-/*
-  This is the Tailwind v4 magic.
-  We're telling Tailwind: "When someone writes bg-background,
-  use the value of --background CSS variable."
-  No tailwind.config.js needed!
-*/
 @theme inline {
-    /* Colors */
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --color-card: var(--card);
-    --color-card-foreground: var(--card-foreground);
-    --color-popover: var(--popover);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-primary: var(--primary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-secondary: var(--secondary);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-muted: var(--muted);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-accent: var(--accent);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-destructive: var(--destructive);
-    --color-destructive-foreground: var(--destructive-foreground);
-    --color-border: var(--border);
-    --color-input: var(--input);
-    --color-ring: var(--ring);
-    --color-chart-1: var(--chart-1);
-    --color-chart-2: var(--chart-2);
-    --color-chart-3: var(--chart-3);
-    --color-chart-4: var(--chart-4);
-    --color-chart-5: var(--chart-5);
+	--color-bg: var(--bg);
+	--color-paper: var(--paper);
 
-    /* Brand Tokens as Tailwind utilities */
-    --color-brand-yellow: var(--brand-yellow);
-    --color-brand-yellow-dim: var(--brand-yellow-dim);
+	--color-ink: var(--ink);
+	--color-ink-soft: var(--ink-soft);
+	--color-ink-muted: var(--ink-muted);
 
-    /* Border Radius */
-    --radius-sm: calc(var(--radius) - 2px);
-    --radius-md: var(--radius);
-    --radius-lg: calc(var(--radius) + 2px);
-    --radius-xl: calc(var(--radius) + 6px);
-    --radius-full: 9999px;
+	--color-rule: var(--rule);
+	--color-rule-soft: var(--rule-soft);
 
-    /* Fonts — registered from layout.tsx via CSS vars */
-    --font-display: var(--font-syne);
-    --font-body: var(--font-dm-sans);
+	--color-accent: var(--accent);
+	--color-accent-tint: var(--accent-tint);
+	--color-secondary: var(--secondary);
+	--color-highlight: var(--highlight);
+	--color-nav-bg: var(--nav-bg);
+
+	/* Semantic tokens consumed by shadcn ui primitives, mapped to the
+	   editorial palette so form controls adapt across every theme. */
+	--color-background: var(--bg);
+	--color-foreground: var(--ink);
+	--color-border: var(--rule);
+	--color-input: var(--rule);
+	--color-ring: var(--accent);
+	--color-muted-foreground: var(--ink-muted);
+	--color-primary: var(--ink);
+	--color-primary-foreground: var(--paper);
+	--color-destructive: var(--destructive);
+
+	--font-display: var(--display);
+	--font-body: var(--body);
+	--font-mono: var(--mono);
 }
 
-/* ─── Base Styles ─────────────────────────────────── */
-@layer base {
-    * {
-        @apply border-border;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        /* Prevent layout shift from scrollbar appearing */
-        scrollbar-gutter: stable;
-    }
-
-    body {
-        @apply bg-background text-foreground font-body;
-        /* Slightly improved text rendering */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-    }
-
-    /* Editorial typography hierarchy */
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply font-display;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-    }
-
-    /* Subtle selection color using brand yellow */
-    ::selection {
-        background-color: color-mix(in oklch, var(--brand-yellow) 30%, transparent);
-        color: var(--foreground);
-    }
-
-    /* Custom scrollbar — minimal, editorial */
-    ::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--background);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--muted-foreground);
-    }
-
-    /* Focus ring — use brand yellow */
-    :focus-visible {
-        outline: 2px solid var(--brand-yellow);
-        outline-offset: 3px;
-        border-radius: 2px;
-    }
+/* ─── Design Tokens ───────────────── */
+:root {
+	/* Warm cream (default fallback) */
+	--bg: #f3ead4;
+	--paper: #faf4e1;
+	--ink: #1d1814;
+	--ink-soft: #4a3f33;
+	--ink-muted: #857664;
+	--rule: #d6c7a3;
+	--rule-soft: #e5d9b8;
+	--accent: #d6446b;
+	--accent-tint: rgba(214, 68, 107, 0.08);
+	--secondary: #1e4eb3;
+	--highlight: #f3cf57;
+	--destructive: #c0392b;
+	--mono: var(--font-jetbrains-mono, "JetBrains Mono"), ui-monospace, monospace;
 }
 
-/* ─── Utility Layer — custom-Specific ─────────── */
-@layer utilities {
+/* ── Font pairings ─────────────── */
+.font-newsreader {
+	--display: var(--font-newsreader, "Newsreader"), Georgia, serif;
+	--body: var(--font-public-sans, "Public Sans"), system-ui, sans-serif;
+}
 
-    /* Editorial section number (01/, 02/ etc.) */
-    .section-number {
-        color: var(--section-number-color);
-        font-family: var(--font-display);
-        font-size: 0.875rem;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-    }
+.font-dmserif {
+	--display: var(--font-dm-serif, "DM Serif Display"), Georgia, serif;
+	--body: var(--font-hanken, "Hanken Grotesk"), system-ui, sans-serif;
+}
 
-    /* The signature yellow underline on hover */
-    .link-editorial {
-        text-decoration: none;
-        background-image: linear-gradient(to right,
-                var(--brand-yellow),
-                var(--brand-yellow));
-        background-size: 0% 2px;
-        background-repeat: no-repeat;
-        background-position: left bottom;
-        transition: background-size 0.3s ease;
-    }
+.font-source {
+	--display: var(--font-source-serif, "Source Serif 4"), Georgia, serif;
+	--body: var(--font-ibm-plex, "IBM Plex Sans"), system-ui, sans-serif;
+}
 
-    .link-editorial:hover {
-        background-size: 100% 2px;
-    }
+/* ── Light palettes ──────────────────── */
+.palette-cream {
+	--bg: #f3ead4;
+	--paper: #faf4e1;
+	--ink: #1d1814;
+	--ink-soft: #4a3f33;
+	--ink-muted: #857664;
+	--rule: #d6c7a3;
+	--rule-soft: #e5d9b8;
+	--accent: #d6446b;
+	--accent-tint: rgba(214, 68, 107, 0.08);
+	--secondary: #1e4eb3;
+	--highlight: #f3cf57;
+	--nav-bg: rgba(243, 234, 212, 0.86);
+}
 
-    /* Dotted editorial border (custom signature) */
-    .border-editorial {
-        border-top: 1px dashed var(--editorial-line);
-    }
+.palette-ivory {
+	--bg: #f1ebde;
+	--paper: #fbf6ea;
+	--ink: #1a1714;
+	--ink-soft: #4c443b;
+	--ink-muted: #8a7f70;
+	--rule: #d8ceb7;
+	--rule-soft: #e8dec8;
+	--accent: #bf3a4f;
+	--accent-tint: rgba(191, 58, 79, 0.08);
+	--secondary: #1f4f8a;
+	--highlight: #e9c64a;
+	--nav-bg: rgba(241, 235, 222, 0.88);
+}
+
+.palette-slate {
+	--bg: #eaecf2;
+	--paper: #f2f4f8;
+	--ink: #0d1520;
+	--ink-soft: #354460;
+	--ink-muted: #7a8898;
+	--rule: #c2cad8;
+	--rule-soft: #d8dfe8;
+	--accent: #e83e6c;
+	--accent-tint: rgba(232, 62, 108, 0.08);
+	--secondary: #1a50c8;
+	--highlight: #ffd04a;
+	--nav-bg: rgba(234, 236, 242, 0.88);
+}
+
+.palette-saffron {
+	--bg: #f5e8b8;
+	--paper: #fdf3cc;
+	--ink: #1a120a;
+	--ink-soft: #4a3520;
+	--ink-muted: #8a7050;
+	--rule: #d4b84a;
+	--rule-soft: #e4cc7a;
+	--accent: #c03a24;
+	--accent-tint: rgba(192, 58, 36, 0.09);
+	--secondary: #1a44a0;
+	--highlight: #1a120a;
+	--nav-bg: rgba(245, 232, 184, 0.88);
+}
+
+.palette-mint {
+	--bg: #eef2e6;
+	--paper: #f7f9ee;
+	--ink: #1c1f17;
+	--ink-soft: #3f463a;
+	--ink-muted: #7e8773;
+	--rule: #cdd5b9;
+	--rule-soft: #deebca;
+	--accent: #c2493f;
+	--accent-tint: rgba(194, 73, 63, 0.08);
+	--secondary: #2f5e3e;
+	--highlight: #ebbe44;
+	--nav-bg: rgba(238, 242, 230, 0.88);
+}
+
+.palette-rose {
+	--bg: #f1e6e0;
+	--paper: #faefe9;
+	--ink: #1f1611;
+	--ink-soft: #4f3f36;
+	--ink-muted: #8a7468;
+	--rule: #d8c0b4;
+	--rule-soft: #ead5c8;
+	--accent: #a8324e;
+	--accent-tint: rgba(168, 50, 78, 0.08);
+	--secondary: #1d4486;
+	--highlight: #e7b240;
+	--nav-bg: rgba(241, 230, 224, 0.88);
+}
+
+/* ── In-between ────────────────────── */
+.palette-amber {
+	--bg: #3a2a18;
+	--paper: #4a3824;
+	--ink: #f5e4c0;
+	--ink-soft: #d0b888;
+	--ink-muted: #9a8058;
+	--rule: #6a4c30;
+	--rule-soft: #523c24;
+	--accent: #f0a040;
+	--accent-tint: rgba(240, 160, 64, 0.15);
+	--secondary: #7ab8f0;
+	--highlight: #f5e4c0;
+	--nav-bg: rgba(58, 42, 24, 0.9);
+}
+
+/* ── Dark palettes ─────────────────────── */
+.palette-night {
+	--bg: #1a1410;
+	--paper: #231b15;
+	--ink: #f3ead4;
+	--ink-soft: #c9bda1;
+	--ink-muted: #857664;
+	--rule: #3a2e23;
+	--rule-soft: #2c2218;
+	--accent: #f06a8b;
+	--accent-tint: rgba(240, 106, 139, 0.12);
+	--secondary: #7aa7ff;
+	--highlight: #f3cf57;
+	--nav-bg: rgba(26, 20, 16, 0.88);
+}
+
+.palette-coal {
+	--bg: #0f1115;
+	--paper: #171a20;
+	--ink: #e8ebef;
+	--ink-soft: #b7bdc7;
+	--ink-muted: #7b8290;
+	--rule: #2a2f38;
+	--rule-soft: #1f242c;
+	--accent: #ff5c8a;
+	--accent-tint: rgba(255, 92, 138, 0.12);
+	--secondary: #7aa7ff;
+	--highlight: #f0c14b;
+	--nav-bg: rgba(15, 17, 21, 0.9);
+}
+
+.palette-noir {
+	--bg: #080706;
+	--paper: #111009;
+	--ink: #f0e8d4;
+	--ink-soft: #c8b89a;
+	--ink-muted: #7a6a50;
+	--rule: #272018;
+	--rule-soft: #1c1710;
+	--accent: #d4a43c;
+	--accent-tint: rgba(212, 164, 60, 0.14);
+	--secondary: #6aaaf0;
+	--highlight: #d4a43c;
+	--nav-bg: rgba(8, 7, 6, 0.92);
+}
+
+.palette-ocean {
+	--bg: #080f1c;
+	--paper: #0d1628;
+	--ink: #cce0f8;
+	--ink-soft: #80a8cc;
+	--ink-muted: #456080;
+	--rule: #162240;
+	--rule-soft: #0e1830;
+	--accent: #00c99a;
+	--accent-tint: rgba(0, 201, 154, 0.12);
+	--secondary: #7878ec;
+	--highlight: #f0c030;
+	--nav-bg: rgba(8, 15, 28, 0.92);
+}
+
+.palette-studio {
+	--bg: #050505;
+	--paper: #0d0d0d;
+	--ink: #f4f3ee;
+	--ink-soft: #a8a8a0;
+	--ink-muted: #585852;
+	--rule: #1a1a18;
+	--rule-soft: #121210;
+	--accent: #b8f020;
+	--accent-tint: rgba(184, 240, 32, 0.12);
+	--secondary: #4a8fff;
+	--highlight: #b8f020;
+	--nav-bg: rgba(5, 5, 5, 0.94);
+}
+
+/* ─── Reset + base ───────────────── */
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--bg);
+	color: var(--ink);
+	font-family: var(--body);
+	font-size: 17px;
+	line-height: 1.55;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	min-height: 100vh;
+}
+
+::selection {
+	background: var(--accent);
+	color: var(--paper);
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* Decorative paper grain */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: -1;
+	background-image: radial-gradient(rgba(0, 0, 0, 0.018) 1px, transparent 1px);
+	background-size: 3px 3px;
+}
+
+/* ─── Theme switch: View Transitions API ──────────────────────────
+   ThemeSwitcher picks a random animation per swap and tags <html> with
+   data-theme-anim. The old snapshot stays put underneath while the new
+   palette is revealed on top. */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+	z-index: 0;
+}
+
+::view-transition-new(root) {
+	z-index: 1;
+}
+
+/* circle — clip-path reveal is animated in JS from the click point. */
+
+/* wipe — new palette sweeps in from the left. */
+:root[data-theme-anim="wipe"]::view-transition-new(root) {
+	animation: theme-wipe 500ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes theme-wipe {
+	from {
+		clip-path: inset(0 100% 0 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+/* blur — new palette fades up out of a soft blur. */
+:root[data-theme-anim="blur"]::view-transition-new(root) {
+	animation: theme-blur 520ms ease both;
+}
+
+@keyframes theme-blur {
+	from {
+		opacity: 0;
+		filter: blur(12px);
+	}
+	to {
+		opacity: 1;
+		filter: blur(0);
+	}
+}
+
+/* slide — new palette rises up over the old. */
+:root[data-theme-anim="slide"]::view-transition-new(root) {
+	animation: theme-slide 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes theme-slide {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+/* ─── Keyframes (referenced via Tailwind animate-[…]) ───────────── */
+@keyframes tk {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes bk {
+	0%,
+	100% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+}
+
+/* ─── Project tags (data-driven category colors) ──────────────── */
+.proj-tag {
+	display: inline-block;
+	font-family: var(--mono);
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 2px 8px;
+	border: 1px solid var(--rule);
+	border-radius: 99px;
+	color: var(--ink-muted);
+	margin-right: 6px;
+	margin-bottom: 4px;
+}
+
+.proj-tag.t-active {
+	color: var(--accent);
+	border-color: var(--accent);
+	background: var(--accent-tint);
+}
+
+.proj-tag.t-shipped {
+	color: #2f7a4d;
+	border-color: #9fcaa7;
+	background: rgba(47, 122, 77, 0.06);
+}
+
+.proj-tag.t-building {
+	color: #9c6a18;
+	border-color: #dabd86;
+	background: rgba(156, 106, 24, 0.06);
+}
+
+.proj-tag.t-concept {
+	color: var(--secondary);
+	border-color: #a6b7da;
+	background: rgba(30, 78, 179, 0.06);
+}
+
+.proj-tag.t-saas {
+	color: var(--accent);
+	border-color: var(--accent);
+	background: var(--accent-tint);
+}
+
+.proj-tag.t-flagship {
+	color: var(--accent);
+	border-color: var(--accent);
+	background: var(--accent-tint);
+}
+
+.proj-tag.t-client {
+	color: #2f7a4d;
+	border-color: #9fcaa7;
+	background: rgba(47, 122, 77, 0.06);
+}
+
+.proj-tag.t-ai {
+	color: var(--secondary);
+	border-color: #a6b7da;
+	background: rgba(30, 78, 179, 0.06);
+}
+
+.proj-tag.t-personal {
+	color: var(--ink-muted);
+	border-color: var(--rule);
+}
+
+.proj-tag.t-platform {
+	color: var(--secondary);
+	border-color: #a6b7da;
+	background: rgba(30, 78, 179, 0.06);
+}
+
+.proj-tag.t-tool {
+	color: var(--ink-muted);
+	border-color: var(--rule);
+}
+
+/* ─── Blog tags (data-driven category colors) ─────────────────── */
+.blog-tag {
+	font-family: var(--mono);
+	font-size: 9.5px;
+	font-weight: 600;
+	padding: 3px 8px;
+	border-radius: 4px;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	display: inline-block;
+}
+
+.blog-tag-arch {
+	background: rgba(212, 164, 60, 0.14);
+	color: #d4a43c;
+}
+
+.blog-tag-ai {
+	background: rgba(30, 78, 179, 0.1);
+	color: var(--secondary);
+}
+
+.blog-tag-eng {
+	background: rgba(47, 122, 77, 0.1);
+	color: #2f7a4d;
+}
+
+.blog-tag-career {
+	background: rgba(214, 68, 107, 0.1);
+	color: var(--accent);
+}
+
+/* ─── Print: resume only, clean paper look ────────────────────── */
+@media print {
+	/* Force a light, ink-friendly palette regardless of active theme.
+	   Attribute selector matches the .palette-* class so it wins on
+	   specificity and works for every palette. */
+	[class*="palette-"] {
+		--bg: #ffffff;
+		--paper: #ffffff;
+		--ink: #161310;
+		--ink-soft: #3a3530;
+		--ink-muted: #6a635a;
+		--rule: #cfc8bc;
+		--rule-soft: #e3ddd2;
+		--accent: #b3003c;
+		--accent-tint: rgba(179, 0, 60, 0.07);
+	}
+
+	html {
+		scroll-behavior: auto;
+	}
+
+	body {
+		background: #ffffff;
+		font-size: 11px;
+		line-height: 1.4;
+	}
+
+	/* Tighten the global rhythm so the resume lands on 1–2 pages. */
+	header,
+	h1,
+	h2,
+	h3,
+	h4 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	/* Drop the decorative paper grain so it doesn't tint the print. */
+	body::before {
+		display: none;
+	}
+
+	/* Honor backgrounds/borders (accent tints, tag chips). */
+	* {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	a {
+		color: inherit;
+	}
+
+	@page {
+		margin: 14mm;
+	}
 }
