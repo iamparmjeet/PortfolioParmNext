@@ -14,9 +14,11 @@ commit-msg:
       run: bunx commitlint --edit {1}
 
 pre-push:
-  parallel: true # WHY: typecheck and lint are independent — run both simultaneously
+  parallel: true # WHY: typecheck, lint, and tests are independent — run them simultaneously
   jobs:
     - name: typecheck
       run: bun run check-types
     - name: biome-full # WHY: mirrors CI exactly — catches repo-wide violations before push
       run: bunx biome check .
+    - name: test # WHY: run the full Vitest suite locally before every push (no online CI)
+      run: bun run test
