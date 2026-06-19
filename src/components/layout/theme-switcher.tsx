@@ -35,7 +35,7 @@ export function ThemeSwitcher() {
 
 		const doc = document as ViewTransitionDocument;
 		const reduceMotion = window.matchMedia(
-			"(prefers-reduced-motion: reduce)"
+			"(prefers-reduced-motion: reduce)",
 		).matches;
 
 		if (!doc.startViewTransition || reduceMotion) {
@@ -58,7 +58,7 @@ export function ThemeSwitcher() {
 		if (anim === "circle") {
 			const endRadius = Math.hypot(
 				Math.max(x, window.innerWidth - x),
-				Math.max(y, window.innerHeight - y)
+				Math.max(y, window.innerHeight - y),
 			);
 			transition.ready.then(() => {
 				root.animate(
@@ -72,7 +72,7 @@ export function ThemeSwitcher() {
 						duration: 480,
 						easing: "ease-in-out",
 						pseudoElement: "::view-transition-new(root)",
-					}
+					},
 				);
 			});
 		}
@@ -123,10 +123,10 @@ export function ThemeSwitcher() {
 			{open && (
 				<div
 					role="menu"
-					className="absolute right-0 top-11 z-50 w-56 rounded-[14px] border border-rule bg-paper p-3 shadow-lg"
+					className="absolute top-11 right-0 z-50 w-56 rounded-[14px] border border-rule bg-paper p-3 shadow-lg"
 				>
 					<div className="mb-2 flex items-center justify-between px-1">
-						<span className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted">
+						<span className="font-mono text-[10px] text-ink-muted uppercase tracking-[0.14em]">
 							Theme
 						</span>
 						<span className="font-mono text-[10px] text-ink-muted">
@@ -136,7 +136,7 @@ export function ThemeSwitcher() {
 
 					{GROUPS.map((group) => (
 						<div key={group} className="mb-1.5 last:mb-0">
-							<div className="px-1 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-ink-muted">
+							<div className="px-1 py-1 font-mono text-[9px] text-ink-muted uppercase tracking-[0.12em]">
 								{group}
 							</div>
 							<div className="grid grid-cols-3 gap-1.5">
@@ -154,7 +154,7 @@ export function ThemeSwitcher() {
 												"flex flex-col items-center gap-1 rounded-[9px] border px-1 py-1.5 transition-colors",
 												isActive
 													? "border-accent bg-accent-tint"
-													: "border-transparent hover:border-rule"
+													: "border-transparent hover:border-rule",
 											)}
 										>
 											<span
