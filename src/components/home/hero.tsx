@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CDN } from "@/constants/data";
 
-export default function Hero() {
+export function Hero() {
 	return (
 		<section className="relative overflow-hidden border-b border-rule py-12 md:pt-24 md:pb-16">
 			<div className="pointer-events-none absolute right-8 top-16 rotate-[-8deg] select-none font-display text-[120px] italic leading-none text-accent opacity-[0.16]">
