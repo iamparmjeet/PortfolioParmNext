@@ -24,7 +24,7 @@ const items = [
 export function Ticker() {
 	return (
 		<div
-			className="overflow-hidden border-y border-ink bg-paper py-4.5"
+			className="overflow-hidden border-ink border-y bg-paper py-4.5"
 			aria-hidden="true"
 		>
 			<div className="flex w-max animate-[tk_42s_linear_infinite]">
@@ -32,23 +32,23 @@ export function Ticker() {
 					items.flatMap((item) => [
 						<span
 							key={`${k}-${item.text}`}
-							className={`whitespace-nowrap px-4.5 font-display text-[22px] font-medium tracking-[-0.01em] ${
+							className={`whitespace-nowrap px-4.5 font-display font-medium text-[22px] tracking-[-0.01em] ${
 								item.alt ? "text-secondary" : "text-ink"
 							}`}
 						>
 							{item.italic ? (
-								<em className="italic text-accent">{item.text}</em>
+								<em className="text-accent italic">{item.text}</em>
 							) : (
 								item.text
 							)}
 						</span>,
 						<span
 							key={`${k}-${item.text}-d`}
-							className="px-1 font-display text-[22px] italic text-ink-muted"
+							className="px-1 font-display text-[22px] text-ink-muted italic"
 						>
 							·
 						</span>,
-					])
+					]),
 				)}
 			</div>
 		</div>

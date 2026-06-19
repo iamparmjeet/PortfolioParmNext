@@ -85,6 +85,6 @@ export default function OpengraphImage() {
 				Open to work · Ludhiana, India
 			</div>
 		</div>,
-		size
+		size,
 	);
 }

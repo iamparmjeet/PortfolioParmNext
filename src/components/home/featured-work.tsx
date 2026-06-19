@@ -6,13 +6,13 @@ const featured = getFeaturedProjects();
 
 export function FeaturedWork() {
 	return (
-		<section className="border-b border-rule py-20">
+		<section className="border-rule border-b py-20">
 			<div className="mx-auto max-w-295 px-8">
 				<div className="mb-10 flex flex-wrap items-end justify-between gap-6">
 					<div>
 						<Kicker>Selected work</Kicker>
-						<h2 className="mt-3.5 max-w-[14ch] font-display text-[clamp(36px,5.5vw,64px)] font-medium leading-none tracking-[-0.03em] text-ink">
-							A few of the <em className="italic text-accent">things</em>
+						<h2 className="mt-3.5 max-w-[14ch] font-display font-medium text-[clamp(36px,5.5vw,64px)] text-ink leading-none tracking-[-0.03em]">
+							A few of the <em className="text-accent italic">things</em>
 							<br />I have been making.
 						</h2>
 					</div>
@@ -26,9 +26,9 @@ export function FeaturedWork() {
 						<Link
 							key={p.id}
 							href={`/work/${p.id}`}
-							className="group flex flex-col overflow-hidden rounded-[14px] border border-rule bg-paper no-underline transition-[border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-accent"
+							className="group hover:-translate-y-0.5 flex flex-col overflow-hidden rounded-[14px] border border-rule bg-paper no-underline transition-[border-color,transform] duration-200 hover:border-accent"
 						>
-							<div className="relative flex aspect-video w-full items-center justify-center overflow-hidden border-b border-rule bg-rule-soft">
+							<div className="relative flex aspect-video w-full items-center justify-center overflow-hidden border-rule border-b bg-rule-soft">
 								<span className="font-mono text-[10px] text-ink-muted">
 									{p.title}
 								</span>
@@ -41,14 +41,14 @@ export function FeaturedWork() {
 										</span>
 									))}
 								</div>
-								<h3 className="font-display text-[21px] font-semibold leading-[1.1] tracking-[-0.02em] text-ink">
+								<h3 className="font-display font-semibold text-[21px] text-ink leading-[1.1] tracking-[-0.02em]">
 									{p.title}
 									<span className="text-ink-muted">, </span>
-									<em className="italic font-medium text-ink-muted">
+									<em className="font-medium text-ink-muted italic">
 										{p.italic}
 									</em>
 								</h3>
-								<div className="text-[13.5px] leading-[1.55] text-ink-soft">
+								<div className="text-[13.5px] text-ink-soft leading-[1.55]">
 									{p.desc}
 								</div>
 								<div className="mt-auto flex flex-wrap gap-1 pt-1.5">
@@ -62,11 +62,11 @@ export function FeaturedWork() {
 									))}
 								</div>
 							</div>
-							<div className="flex items-center justify-between border-t border-rule-soft px-4.5 py-3">
-								<span className="font-mono text-[10.5px] uppercase tracking-[0.06em] text-ink-muted">
+							<div className="flex items-center justify-between border-rule-soft border-t px-4.5 py-3">
+								<span className="font-mono text-[10.5px] text-ink-muted uppercase tracking-[0.06em]">
 									{p.year}
 								</span>
-								<span className="font-display text-[20px] text-ink-muted transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent">
+								<span className="group-hover:-translate-y-0.5 font-display text-[20px] text-ink-muted transition group-hover:translate-x-0.5 group-hover:text-accent">
 									↗
 								</span>
 							</div>
@@ -76,7 +76,7 @@ export function FeaturedWork() {
 				<div className="mt-8 text-center">
 					<Link
 						href="/work"
-						className="group inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3.25 font-body text-[14.5px] font-medium text-ink no-underline transition-all duration-150 hover:bg-ink hover:text-paper"
+						className="group inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3.25 font-body font-medium text-[14.5px] text-ink no-underline transition-all duration-150 hover:bg-ink hover:text-paper"
 					>
 						See all {PROJECTS.length} projects{" "}
 						<span className="font-display text-[18px] leading-none transition-transform group-hover:translate-x-0.75">

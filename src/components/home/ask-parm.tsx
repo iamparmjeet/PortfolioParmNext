@@ -69,7 +69,7 @@ export function AskParm() {
 			}
 		} catch {
 			setMessages((m) =>
-				updateLast(m, "Couldn't reach the server. Please try again.")
+				updateLast(m, "Couldn't reach the server. Please try again."),
 			);
 		} finally {
 			setStreaming(false);
@@ -86,10 +86,10 @@ export function AskParm() {
 				className="flex max-h-[280px] min-h-[120px] flex-col gap-3 overflow-y-auto"
 			>
 				<div className="flex items-start gap-2.5">
-					<span className="w-[50px] flex-shrink-0 text-[10.5px] font-bold uppercase tracking-[0.1em] text-secondary">
+					<span className="w-[50px] flex-shrink-0 font-bold text-[10.5px] text-secondary uppercase tracking-[0.1em]">
 						parm.ai
 					</span>
-					<span className="flex-1 leading-[1.55] text-ink-soft">
+					<span className="flex-1 text-ink-soft leading-[1.55]">
 						{GREETING}
 					</span>
 				</div>
@@ -101,13 +101,13 @@ export function AskParm() {
 						className="flex items-start gap-2.5"
 					>
 						<span
-							className={`w-[50px] flex-shrink-0 text-[10.5px] font-bold uppercase tracking-[0.1em] ${
+							className={`w-[50px] flex-shrink-0 font-bold text-[10.5px] uppercase tracking-[0.1em] ${
 								m.role === "user" ? "text-accent" : "text-secondary"
 							}`}
 						>
 							{m.role === "user" ? "you" : "parm.ai"}
 						</span>
-						<span className="flex-1 leading-[1.55] text-ink">
+						<span className="flex-1 text-ink leading-[1.55]">
 							{m.content}
 							{m.role === "assistant" &&
 								streaming &&

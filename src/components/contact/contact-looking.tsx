@@ -3,11 +3,11 @@ import { looking } from "@/constants";
 export function ContactLookingBox() {
 	return (
 		<section className="mb-12">
-			<div className="mb-6 flex items-baseline justify-between gap-4 border-b border-rule pb-4">
-				<h2 className="font-display text-2xl font-semibold tracking-[-0.02em]">
-					What I am <em className="italic text-accent">looking</em> for
+			<div className="mb-6 flex items-baseline justify-between gap-4 border-rule border-b pb-4">
+				<h2 className="font-display font-semibold text-2xl tracking-[-0.02em]">
+					What I am <em className="text-accent italic">looking</em> for
 				</h2>
-				<span className="font-mono text-[11px] uppercase tracking-widest text-ink-muted">
+				<span className="font-mono text-[11px] text-ink-muted uppercase tracking-widest">
 					{looking.length} things
 				</span>
 			</div>
@@ -17,27 +17,27 @@ export function ContactLookingBox() {
 						key={l.n}
 						className="rounded-[14px] border border-rule bg-paper p-5 transition-colors duration-150 hover:border-accent"
 					>
-						<div className="mb-3 font-display text-[22px] italic leading-none text-accent">
+						<div className="mb-3 font-display text-[22px] text-accent italic leading-none">
 							{l.n}
 						</div>
-						<h3 className="mb-1.5 font-display text-[18px] font-semibold">
+						<h3 className="mb-1.5 font-display font-semibold text-[18px]">
 							{l.t}
 						</h3>
-						<p className="text-sm leading-normal text-ink-soft">{l.s}</p>
+						<p className="text-ink-soft text-sm leading-normal">{l.s}</p>
 					</div>
 				))}
 			</div>
 
 			<div className="mt-4 rounded-[14px] border border-accent border-l-[3px] bg-paper p-5.5">
 				<div className="flex items-start gap-3.5">
-					<div className="font-display text-[32px] italic leading-none text-accent">
+					<div className="font-display text-[32px] text-accent italic leading-none">
 						⚡
 					</div>
 					<div>
-						<div className="mb-1 font-display text-[18px] font-semibold">
+						<div className="mb-1 font-display font-semibold text-[18px]">
 							Fast response, no fuss.
 						</div>
-						<div className="text-sm leading-[1.55] text-ink-soft">
+						<div className="text-ink-soft text-sm leading-[1.55]">
 							I typically reply within 4–8 hours on weekdays (IST). For urgent
 							projects, drop the word{" "}
 							<span className="rounded-sm bg-highlight px-1 text-ink">

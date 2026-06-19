@@ -66,7 +66,7 @@ export function ContactForm() {
 					error?: string;
 				} | null;
 				setServerError(
-					data?.error ?? "Something went wrong. Please try again."
+					data?.error ?? "Something went wrong. Please try again.",
 				);
 				turnstileRef.current?.reset();
 				setToken("");
@@ -83,10 +83,10 @@ export function ContactForm() {
 				<div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent-tint text-accent">
 					<IconCheck size={22} stroke={2.2} />
 				</div>
-				<h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">
+				<h3 className="font-display font-semibold text-2xl tracking-[-0.02em]">
 					Message sent — thank you.
 				</h3>
-				<p className="max-w-[42ch] text-[15px] leading-[1.55] text-ink-soft">
+				<p className="max-w-[42ch] text-[15px] text-ink-soft leading-[1.55]">
 					I typically reply within 4–8 hours on weekdays (IST). Watch your inbox
 					— and check spam just in case.
 				</p>
@@ -188,12 +188,12 @@ export function ContactForm() {
 										onBlur={field.handleBlur}
 										onChange={(e) =>
 											field.handleChange(
-												e.target.value as ContactValues["inquiryType"]
+												e.target.value as ContactValues["inquiryType"],
 											)
 										}
 										className={cn(
 											controlClass,
-											"w-full appearance-none border border-input pr-10 outline-none transition-colors focus-visible:border-accent focus-visible:ring-1 focus-visible:ring-accent/40"
+											"w-full appearance-none border border-input pr-10 outline-none transition-colors focus-visible:border-accent focus-visible:ring-1 focus-visible:ring-accent/40",
 										)}
 									>
 										{INQUIRY_TYPES.map((option) => (
@@ -204,7 +204,7 @@ export function ContactForm() {
 									</select>
 									<IconChevronDown
 										size={18}
-										className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-ink-muted"
+										className="-translate-y-1/2 pointer-events-none absolute top-1/2 right-3 text-ink-muted"
 									/>
 								</div>
 							</Field>
@@ -295,7 +295,7 @@ export function ContactForm() {
 				)}
 
 				{serverError && (
-					<p className="text-sm text-destructive" role="alert">
+					<p className="text-destructive text-sm" role="alert">
 						{serverError}
 					</p>
 				)}
@@ -312,7 +312,7 @@ export function ContactForm() {
 							<Button
 								type="submit"
 								disabled={!canSubmit || isSubmitting || !captchaReady}
-								className="h-12 w-full rounded-[10px] text-sm font-semibold sm:w-auto sm:px-7"
+								className="h-12 w-full rounded-[10px] font-semibold text-sm sm:w-auto sm:px-7"
 							>
 								{isSubmitting ? (
 									"Sending…"

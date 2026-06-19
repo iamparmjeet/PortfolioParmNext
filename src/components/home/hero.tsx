@@ -4,22 +4,22 @@ import { CDN } from "@/constants/data";
 
 export function Hero() {
 	return (
-		<section className="relative overflow-hidden border-b border-rule py-12 md:pt-24 md:pb-16">
-			<div className="pointer-events-none absolute right-8 top-16 rotate-[-8deg] select-none font-display text-[120px] italic leading-none text-accent opacity-[0.16]">
+		<section className="relative overflow-hidden border-rule border-b py-12 md:pt-24 md:pb-16">
+			<div className="pointer-events-none absolute top-16 right-8 rotate-[-8deg] select-none font-display text-[120px] text-accent italic leading-none opacity-[0.16]">
 				✦
 			</div>
 			<div className="mx-auto max-w-295 px-8">
 				<div className="grid grid-cols-1 items-center gap-14 md:grid-cols-[1fr_300px]">
 					<div>
-						<h1 className="mb-9 max-w-[13ch] font-display text-[clamp(54px,9vw,128px)] font-medium leading-[0.92] tracking-[-0.04em] text-ink">
+						<h1 className="mb-9 max-w-[13ch] font-display font-medium text-[clamp(54px,9vw,128px)] text-ink leading-[0.92] tracking-[-0.04em]">
 							Hi, I&apos;m{" "}
-							<em className="italic font-medium text-accent">Parm</em>
+							<em className="font-medium text-accent italic">Parm</em>
 							.<br />I build things{" "}
-							<span className="italic font-medium text-ink-muted">&amp;</span>{" "}
+							<span className="font-medium text-ink-muted italic">&amp;</span>{" "}
 							ship them with{" "}
-							<em className="italic font-medium text-accent">care</em>.
+							<em className="font-medium text-accent italic">care</em>.
 						</h1>
-						<p className="mb-9 max-w-140 font-body text-[19px] leading-[1.6] text-ink-soft">
+						<p className="mb-9 max-w-140 font-body text-[19px] text-ink-soft leading-[1.6]">
 							Formerly taught physics; now I design systems and write code that{" "}
 							<strong className="font-semibold text-ink">
 								solves real problems
@@ -30,7 +30,7 @@ export function Hero() {
 						<div className="flex flex-wrap gap-2.5">
 							<Link
 								href="/work"
-								className="group inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-6 py-3.25 font-body text-[14.5px] font-medium text-paper no-underline transition-all duration-150 hover:border-accent hover:bg-accent"
+								className="group inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-6 py-3.25 font-body font-medium text-[14.5px] text-paper no-underline transition-all duration-150 hover:border-accent hover:bg-accent"
 							>
 								See the work{" "}
 								<span className="font-display text-[18px] leading-none transition-transform group-hover:translate-x-0.75">
@@ -39,13 +39,13 @@ export function Hero() {
 							</Link>
 							<Link
 								href="/work/rentwise"
-								className="inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3.25 font-body text-[14.5px] font-medium text-ink no-underline transition-all duration-150 hover:bg-ink hover:text-paper"
+								className="inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3.25 font-body font-medium text-[14.5px] text-ink no-underline transition-all duration-150 hover:bg-ink hover:text-paper"
 							>
 								Read a case study
 							</Link>
 							<Link
 								href="/contact"
-								className="inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3.25 font-body text-[14.5px] font-medium text-ink no-underline transition-all duration-150 hover:bg-ink hover:text-paper"
+								className="inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3.25 font-body font-medium text-[14.5px] text-ink no-underline transition-all duration-150 hover:bg-ink hover:text-paper"
 							>
 								Get in touch
 							</Link>
