@@ -3,6 +3,9 @@ import { JetBrains_Mono, Newsreader, Public_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/footer";
 import Nav from "@/components/layout/nav";
+import { ThemeProvider } from "@/components/theme-provider";
+import { SITE, SITE_URL } from "@/constants/site";
+import { DEFAULT_PALETTE, PALETTE_IDS } from "@/constants/themes";
 
 const newsreader = Newsreader({
 	subsets: ["latin"],
@@ -28,30 +31,37 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL(SITE_URL),
 	title: {
-		default: "Parmjeet Mishra — Full-Stack React Developer",
-		template: "%s | Parmjeet Mishra",
+		default: SITE.title,
+		template: `%s | ${SITE.name}`,
 	},
-	description:
-		"Full-Stack React Developer specializing in Next.js, TypeScript, and modern web applications. Based in Ludhiana, India.",
+	description: SITE.description,
 	keywords: ["Full-Stack Developer", "React", "Next.js", "TypeScript", "India"],
-	authors: [{ name: "Parmjeet Mishra", url: "https://parmjeetmishra.com" }],
-	creator: "Parmjeet Mishra",
+	authors: [{ name: SITE.name, url: SITE_URL }],
+	creator: SITE.name,
+	manifest: "/manifest.webmanifest",
+	alternates: { canonical: "/" },
+	icons: {
+		icon: [
+			{ url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+			{ url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+		],
+		apple: "/apple-touch-icon.png",
+	},
 	openGraph: {
 		type: "website",
-		locale: "en_IN",
-		url: "https://parmjeetmishra.com",
-		title: "Parmjeet Mishra — Full-Stack React Developer",
-		description:
-			"Full-Stack React Developer specializing in Next.js, TypeScript, and modern web applications.",
-		siteName: "Parmjeet Mishra",
+		locale: SITE.locale,
+		url: SITE_URL,
+		title: SITE.title,
+		description: SITE.description,
+		siteName: SITE.name,
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Parmjeet Mishra — Full-Stack React Developer",
-		description:
-			"Full-Stack React Developer specializing in Next.js, TypeScript, and modern web applications.",
-		creator: "@iamparmjeet",
+		title: SITE.title,
+		description: SITE.description,
+		creator: SITE.twitter,
 	},
 	robots: { index: true, follow: true },
 };
@@ -64,12 +74,23 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
+			suppressHydrationWarning
 			className={`${newsreader.variable} ${publicSans.variable} ${jetbrainsMono.variable}`}
 		>
-			<body className="palette-noir font-newsreader">
-				<Nav />
-				{children}
-				<Footer />
+			<body className="font-newsreader">
+				<ThemeProvider
+					attribute="class"
+					themes={PALETTE_IDS}
+					defaultTheme={DEFAULT_PALETTE}
+					enableSystem={false}
+					enableColorScheme={false}
+					disableTransitionOnChange
+					storageKey="palette"
+				>
+					<Nav />
+					{children}
+					<Footer />
+				</ThemeProvider>
 			</body>
 		</html>
 	);
