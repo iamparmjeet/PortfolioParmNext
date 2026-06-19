@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
 		api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
 		capture_pageview: false, // we handle this manually below
 		capture_pageleave: true, // useful: knows when people bounce
-		persistence: "localStorage+cookie",
+		persistence: "localStorage",
 	});
 }
 

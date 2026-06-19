@@ -30,8 +30,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Script       | What it does                |
-| ------------ | --------------------------- |
+| Script            | What it does                |
+| ----------------- | --------------------------- |
 | `bun dev`         | Start the dev server        |
 | `bun build`       | Production build            |
 | `bun start`       | Serve the production build  |
@@ -129,3 +129,11 @@ All content is plain TypeScript data — no CMS:
 
 > Note: the **Schooly** project and the case-study stat figures are drafts —
 > review them before treating any number as a factual claim.
+
+###Pending Tasks
+
+- [ ] Posthog per page analytics
+- [ ] Email Capture added
+- [ ] Resend or CF Email setup
+- [ ] Case Study review
+- [ ] Projects Images pending
