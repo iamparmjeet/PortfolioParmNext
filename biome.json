@@ -19,12 +19,9 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
-			"suspicious": {
-				"noUnknownAtRules": "off"
-			},
 			"correctness": {
 				"noUnusedImports": "warn",
-				"useExhaustiveDependencies": "warn"
+				"useExhaustiveDependencies": "info"
 			},
 			"style": {
 				"noNonNullAssertion": "warn"
@@ -42,22 +39,9 @@
 			}
 		}
 	},
-	"overrides": [
-		{
-			"includes": ["**/*.css"],
-			"linter": {
-				"rules": {
-					"correctness": {
-						"noUnknownTypeSelector": "off"
-					}
-				}
-			}
-		}
-	],
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "double",
-			"trailingCommas": "es5",
 			"semicolons": "always"
 		}
 	}
