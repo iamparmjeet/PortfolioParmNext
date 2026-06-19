@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import {
 	ResumeEducation,
 	ResumeExperience,
@@ -10,7 +9,7 @@ import {
 	ResumeSkills,
 } from "@/components/resume";
 import { Button } from "@/components/ui/button";
-import { EMAIL, education, skills, TITLE } from "@/constants";
+import { EMAIL, TITLE } from "@/constants";
 import { PROJECTS } from "@/lib/projects";
 
 const secLabel =
