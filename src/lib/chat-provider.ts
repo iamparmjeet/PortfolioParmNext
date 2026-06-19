@@ -21,7 +21,7 @@ const PROVIDER_DEFAULTS: Record<ChatProvider, ProviderDefaults> = {
 	},
 	fireworks: {
 		baseURL: "https://api.fireworks.ai/inference/v1",
-		model: "accounts/fireworks/models/llama-v3p3-70b-instruct",
+		model: "accounts/fireworks/models/kimi-k2p6",
 		keyVar: "FIREWORKS_API_KEY",
 		modelVar: "FIREWORKS_MODEL",
 	},
