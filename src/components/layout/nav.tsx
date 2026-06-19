@@ -3,17 +3,10 @@ import { IconMenuDeep, IconX } from "@tabler/icons-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ThemeSwitcher } from "@/components/layout/theme-switcher";
 import { Logo } from "@/components/logos";
+import { NAVLINKS } from "@/constants/nav";
 import { Button } from "../ui/button";
-
-const links = [
-	{ href: "/", label: "Home" },
-	{ href: "/work", label: "Work" },
-	{ href: "/about", label: "About" },
-	{ href: "/blog", label: "Writing" },
-	{ href: "/resume", label: "Resume" },
-	{ href: "/contact", label: "Contact" },
-];
 
 export default function Nav() {
 	const [open, setOpen] = useState(false);
@@ -36,34 +29,39 @@ export default function Nav() {
 	}, [open]);
 
 	return (
-		<nav className="sticky top-0 z-50 border-b border-rule backdrop-blur-[10px] backdrop-saturate-150 bg-nav-bg)">
+		<nav className="sticky top-0 z-50 border-b border-rule bg-nav-bg backdrop-blur-[10px] backdrop-saturate-150 print:hidden">
 			<div className="mx-auto flex max-w-295 items-center justify-between gap-6 px-8 py-3.5">
 				<Link href="/" className="cursor-pointer items-center text-ink">
 					<Logo variant="cutp" size={26} />
 				</Link>
 				{/* Desktop Nav*/}
 				<ul className="hidden items-center gap-0.5 md:flex">
-					{links.map((l) => (
+					{NAVLINKS.map((l) => (
 						<li key={l.href}>
 							<NavLink link={l} pathname={pathname} />
 						</li>
 					))}
 				</ul>
 
-				<span className="inline-flex items-center gap-1.5 text-xs font-mono leading-5 font-medium uppercase text-accent bg-accent-tint py-1.5 px-3 rounded-full border border-accent">
-					<span className="bg-accent size-1.5 rounded-full animate-pulse " />
-					Open to work
-				</span>
-				{/* Mobile Nav*/}
-				<div className="md:hidden">
-					<Button
-						onClick={() => setOpen(!open)}
-						aria-label={open ? "Close menu" : "Open menu"}
-						aria-expanded={open}
-						className="rounded-full p-2 text-ink hover:bg-black/4"
-					>
-						{open ? <IconX size={24} /> : <IconMenuDeep size={24} />}
-					</Button>
+				<div className="flex items-center gap-2.5">
+					<span className="hidden items-center gap-1.5 text-xs font-mono leading-5 font-medium uppercase text-accent bg-accent-tint py-1.5 px-3 rounded-full border border-accent sm:inline-flex">
+						<span className="bg-accent size-1.5 rounded-full animate-pulse " />
+						Open to work
+					</span>
+					<ThemeSwitcher />
+					{/* Mobile Nav*/}
+					<div className="md:hidden">
+						<Button
+							variant="ghost"
+							size="icon"
+							onClick={() => setOpen(!open)}
+							aria-label={open ? "Close menu" : "Open menu"}
+							aria-expanded={open}
+							className="size-10 rounded-full text-ink hover:bg-black/4"
+						>
+							{open ? <IconX size={24} /> : <IconMenuDeep size={24} />}
+						</Button>
+					</div>
 				</div>
 			</div>
 
@@ -77,8 +75,8 @@ export default function Nav() {
 						aria-hidden="true"
 					/>
 					{/* Menu panel */}
-					<ul className="absolute left-0 right-0 top-14.25 border-b border-rule bg-nav-bg px-4 py-4 shadow-lg">
-						{links.map((l) => (
+					<ul className="absolute left-0 right-0 top-14.25 border-b border-rule bg-bg px-4 py-4 shadow-lg">
+						{NAVLINKS.map((l) => (
 							<li key={l.href}>
 								<Link
 									href={l.href}
