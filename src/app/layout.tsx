@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Newsreader, Public_Sans } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
 import Footer from "@/components/layout/footer";
 import Nav from "@/components/layout/nav";
+import { PostHogProvider } from "@/components/providers/posthog-providers";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE, SITE_URL } from "@/constants/site";
 import { DEFAULT_PALETTE, PALETTE_IDS } from "@/constants/themes";
@@ -78,19 +80,23 @@ export default function RootLayout({
 			className={`${newsreader.variable} ${publicSans.variable} ${jetbrainsMono.variable}`}
 		>
 			<body className="font-newsreader">
-				<ThemeProvider
-					attribute="class"
-					themes={PALETTE_IDS}
-					defaultTheme={DEFAULT_PALETTE}
-					enableSystem={false}
-					enableColorScheme={false}
-					disableTransitionOnChange
-					storageKey="palette"
-				>
-					<Nav />
-					{children}
-					<Footer />
-				</ThemeProvider>
+				<Suspense fallback={null}>
+					<PostHogProvider>
+						<ThemeProvider
+							attribute="class"
+							themes={PALETTE_IDS}
+							defaultTheme={DEFAULT_PALETTE}
+							enableSystem={false}
+							enableColorScheme={false}
+							disableTransitionOnChange
+							storageKey="palette"
+						>
+							<Nav />
+							{children}
+							<Footer />
+						</ThemeProvider>
+					</PostHogProvider>
+				</Suspense>
 			</body>
 		</html>
 	);
