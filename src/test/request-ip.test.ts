@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { clientIp } from "./request-ip";
+import { clientIp } from "../lib/request-ip";
 
 // Minimal stand-in for the parts of NextRequest that clientIp reads.
 function req(headers: Record<string, string>) {
