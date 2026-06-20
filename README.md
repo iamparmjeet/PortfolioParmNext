@@ -136,4 +136,4 @@ All content is plain TypeScript data — no CMS:
 - [ ] Email Capture added
 - [ ] Resend or CF Email setup
 - [ ] Case Study review
-- [ ] Projects Images pending
+- [x] Projects Images pending
