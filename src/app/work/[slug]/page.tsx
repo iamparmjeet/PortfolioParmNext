@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Kicker } from "@/components/shared/kicker";
@@ -160,10 +161,21 @@ export default async function CaseStudyPage({ params }: PageProps) {
 							</div>
 						))}
 					</div>
-					<div className="mt-5 flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-rule bg-rule-soft">
-						<span className="font-mono text-[11px] text-ink-muted">
-							{study.shotLabel}
-						</span>
+					<div className="mt-5 flex aspect-3/2 items-center justify-center overflow-hidden rounded-xl border border-rule bg-rule-soft">
+						{study.image ? (
+							<Image
+								src={study.image}
+								alt={study.shotLabel}
+								width={1200}
+								height={700}
+								quality={95}
+								className="aspect-3/2 object-cover"
+							/>
+						) : (
+							<span className="font-mono text-[11px] text-ink-muted">
+								{study.shotLabel}
+							</span>
+						)}
 					</div>
 				</div>
 

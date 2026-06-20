@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getFeaturedProjects, PROJECTS } from "@/lib/projects";
 import { Kicker } from "../shared/kicker";
@@ -28,10 +29,21 @@ export function FeaturedWork() {
 							href={`/work/${p.id}`}
 							className="group hover:-translate-y-0.5 flex flex-col overflow-hidden rounded-[14px] border border-rule bg-paper no-underline transition-[border-color,transform] duration-200 hover:border-accent"
 						>
-							<div className="relative flex aspect-video w-full items-center justify-center overflow-hidden border-rule border-b bg-rule-soft">
-								<span className="font-mono text-[10px] text-ink-muted">
-									{p.title}
-								</span>
+							<div className="relative flex aspect-3/2 w-full items-center justify-center overflow-hidden border-rule border-b bg-rule-soft">
+								{p.image ? (
+									<Image
+										src={p.image}
+										alt={p.title}
+										fill
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
+										quality={90}
+										className="object-cover transition-transform duration-500 group-hover:scale-105"
+									/>
+								) : (
+									<span className="font-mono text-[10px] text-ink-muted">
+										{p.title}
+									</span>
+								)}
 							</div>
 							<div className="flex flex-1 flex-col gap-2.25 px-4.5 pt-4.5 pb-3.5">
 								<div className="flex flex-wrap gap-1.25">

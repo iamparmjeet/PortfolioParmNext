@@ -3,6 +3,9 @@
 // mirrors the sections the work template renders, so adding a study is just
 // data, never JSX.
 
+import type { StaticImageData } from "next/image";
+import { CDN } from "@/constants";
+
 export interface CaseStat {
 	/** The full value, e.g. "8+" */
 	v: string;
@@ -58,6 +61,7 @@ export interface CaseStudy {
 	challenges: CaseCard[];
 	quote: string;
 	quoteAttribution: string;
+	image?: string | StaticImageData | undefined;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -65,6 +69,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 	{
 		slug: "rentwise",
 		readTime: "12 min",
+		image: `${CDN}/web/projects/rentwise.jpg`,
 		heroTitle:
 			"Rentwise — taking a <em>multi-tenant</em> rental SaaS from zero to production.",
 		tagline:
@@ -202,6 +207,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 			"Schooly — a <em>multi-tenant</em> school platform, built by a former teacher.",
 		tagline:
 			"Twelve years in a classroom turned into software for the people still in one. Shares a monorepo with Rentwise.",
+		image: `${CDN}/web/projects/schooly.jpg`,
 		overlineTags: ["multi-tenant", "monorepo", "edu"],
 		overviewTitle: "School operations, <em>without the clipboard</em>",
 		overviewBody:
@@ -313,8 +319,9 @@ export const CASE_STUDIES: CaseStudy[] = [
 
 	// ──────────────────────────────────────────────────────────────────────
 	{
-		slug: "amarv4",
+		slug: "amar",
 		readTime: "9 min",
+		image: `${CDN}/web/projects/amar.jpg`,
 		heroTitle:
 			"Amar — a <em>cinematic</em> HLS pipeline for a working video editor.",
 		tagline:
@@ -527,6 +534,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 	{
 		slug: "krm",
 		readTime: "7 min",
+		image: `${CDN}/web/projects/krm.jpg`,
 		heroTitle:
 			"KRM Engineering Works — a <em>shipped</em> B2B catalog with shareable state.",
 		tagline:
@@ -626,10 +634,11 @@ export const CASE_STUDIES: CaseStudy[] = [
 		quoteAttribution: "Parm, on KRM",
 	},
 
-	// ──────────────────────────────────────────────────────────────────────
+	// ───
 	{
 		slug: "nxtrmt",
 		readTime: "8 min",
+		image: `${CDN}/web/projects/nxtrmt.jpg`,
 		heroTitle:
 			"NxtRmtJobs — a remote board that knows about your <em>timezone</em>.",
 		tagline:
@@ -1044,7 +1053,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 		quoteAttribution: "Parm, on ContextChat",
 	},
 
-	// ──────────────────────────────────────────────────────────────────────
+	// ─
 	{
 		slug: "devbrief",
 		readTime: "6 min",
@@ -1141,6 +1150,362 @@ export const CASE_STUDIES: CaseStudy[] = [
 		quote:
 			"The best feed reader is the one you never open. DevBrief is a bet that a good daily email beats three feeds you patrol all day.",
 		quoteAttribution: "Parm, on DevBrief",
+	},
+
+	// ═══════════════
+	//  FORMCRAFT  (case study)
+	// ══════════════
+	{
+		slug: "formcraft",
+		readTime: "7 min",
+		image: `${CDN}/web/projects/formcraft.jpg`,
+		heroTitle:
+			"FormCraft — a <em>visual form builder</em> that hands you the code, not a platform.",
+		tagline:
+			"Drag fields, configure validation, pick a layout — then copy the JSX, Zod schema, and full page file and never look back.",
+		overlineTags: ["tool", "DX", "open-source"],
+		overviewTitle:
+			"Build the form <em>visually</em>, own the code <em>entirely</em>",
+		overviewBody:
+			"Most form builders lock your forms inside their platform. FormCraft is a studio that exits cleanly: configure a single or multi-step form with <strong>shadcn/ui</strong> fields, React Hook Form or TanStack Form bindings, and Zod validation — then copy the complete, production-ready output. No account, no runtime dependency, no vendor.",
+		stats: [
+			{ v: "3", l: "Output formats" },
+			{ v: "2", l: "Form libraries", em: "2" },
+			{ v: "0", l: "Runtime vendor lock-in", em: "0" },
+			{ v: "1", l: "Click to copy", em: "1" },
+		],
+		shotLabel: "Builder + live preview panel",
+		problemTitle: "The problem",
+		problem: [
+			"Every scaffolding tool gives you a skeleton; no tool gives you a <strong>complete, wired-up form</strong> ready to paste into a real project. You still write the Zod schema by hand, wire up the library bindings, and add the shadcn fields one by one. For a multi-step form that is twenty minutes of boilerplate before you write a single line of business logic.",
+			"Form builders that do remove that friction <strong>trap you in their runtime</strong>. The generated output only works inside their platform, and migrating off means rewriting from scratch. FormCraft generates code you own: the component, the schema, and the page file — all of it plain TypeScript you can read, edit, and commit.",
+		],
+		architectureTitle: "System architecture",
+		architectureIntro:
+			"A pure client-side studio with no backend — the only output is text you copy. The interesting engineering is keeping the builder state, the live preview, and three different output renderers in sync without the whole thing becoming a spaghetti of effects.",
+		architecture: [
+			{
+				l: "Builder",
+				chips: [
+					{ t: "React DnD", v: "hot" },
+					{ t: "Field config panel" },
+					{ t: "Step manager", v: "cool" },
+				],
+			},
+			{
+				l: "Preview",
+				chips: [
+					{ t: "Live shadcn/ui render", v: "hot" },
+					{ t: "RHF or TanStack Form", v: "hot" },
+					{ t: "Zod validation live", v: "cool" },
+				],
+			},
+			{
+				l: "Codegen",
+				chips: [
+					{ t: "JSX + Zod schema", v: "hot" },
+					{ t: "JSON schema export" },
+					{ t: "Full page/route file", v: "cool" },
+				],
+			},
+			{
+				l: "Output",
+				chips: [
+					{ t: "One-click copy", v: "hot" },
+					{ t: "No runtime dep" },
+					{ t: "Prettier-formatted", v: "cool" },
+				],
+			},
+			{
+				l: "Tooling",
+				chips: [{ t: "Next.js 15" }, { t: "Biome" }, { t: "Tailwind v4" }],
+			},
+		],
+		decisionsTitle: "Three decisions worth defending",
+		decisions: [
+			{
+				label: "Decision 01",
+				title: "Generate code, do not wrap it",
+				body: "The output is a <code>.tsx</code> file with zero imports from FormCraft. Most generators produce components that call back into their own SDK — FormCraft produces code that reads as if you wrote it yourself. That is the exit guarantee.",
+				accent: "accent",
+			},
+			{
+				label: "Decision 02",
+				title: "Both RHF and TanStack Form as first-class targets",
+				body: "RHF is the market default; TanStack Form is the right choice for complex validation trees. FormCraft generates for either — not by maintaining two codebases, but by treating the form library as a codegen parameter the builder passes to the renderer.",
+				accent: "amber",
+			},
+			{
+				label: "Decision 03",
+				title: "Three output formats from one schema",
+				body: "The internal builder state is a JSON schema. JSX output, JSON export, and full page file are all renderers over that same schema — so adding a fourth output format (say, a Remix action) is a new renderer, not a new feature branch.",
+				accent: "secondary",
+			},
+		],
+		challengesTitle: "Hardest problems, plainly",
+		challenges: [
+			{
+				label: "Challenge 01",
+				title: "Keeping preview and codegen honest",
+				body: "The live preview renders the actual form using the actual libraries. The codegen emits the text that represents it. If they ever drift — a validation rule in the preview that the codegen forgets to emit — the tool becomes a liar. The constraint: codegen is derived from the same schema the preview reads, never from inspecting the preview's DOM.",
+				accent: "accent",
+			},
+			{
+				label: "Challenge 02",
+				title: "Multi-step state across codegen targets",
+				body: "Single-page forms are straightforward. Multi-step forms require coordinating step transitions, per-step Zod schemas, and a submission handler that only fires at the end — and that coordination looks different in RHF vs TanStack Form. The step model had to be library-agnostic at the schema level.",
+				accent: "amber",
+			},
+			{
+				label: "Challenge 03",
+				title: "Formatting the emitted code",
+				body: "Code that comes out of a generator is usually unreadable — inconsistent indentation, unnecessary blank lines, jumbled imports. Running Prettier (via <code>prettier/standalone</code>) in the browser over the emitted string before the copy means what you paste is what you would have written.",
+				accent: "secondary",
+			},
+		],
+		quote:
+			"A tool that hands you a platform dependency is not a tool — it is a slow migration waiting to happen. FormCraft hands you a file.",
+		quoteAttribution: "Parm, on FormCraft",
+	},
+
+	// ═════════════════
+	// PIPE  (case study)
+	// ═════════════════
+	{
+		slug: "pipe",
+		readTime: "8 min",
+		image: `${CDN}/web/projects/pipe.jpg`,
+		heroTitle:
+			"PIPE — an <em>FFmpeg-powered</em> HLS pipeline for a working video creator.",
+		tagline:
+			"Upload once, get back an Instagram Reel, a YouTube Short, HLS segments, a blur-shot thumbnail, and a cover — all queued, all on R2.",
+		overlineTags: ["client work", "video", "shipped"],
+		overviewTitle: "One upload, <em>every format</em>",
+		overviewBody:
+			"PIPE is a transcoding pipeline built for a client who shoots and edits video professionally. The problem was simple and painful: every platform wants a different format, aspect ratio, and codec. PIPE takes a single source upload and fans out — <strong>Instagram Reels, YouTube Shorts, HLS adaptive streaming</strong>, a blurred-background thumbnail, and a cover image — all without the creator touching FFmpeg.",
+		stats: [
+			{ v: "4+", l: "Output formats", em: "4" },
+			{ v: "0", l: "FFmpeg commands typed by client", em: "0" },
+			{ v: "1", l: "Real client", em: "1" },
+			{ v: "R2", l: "Storage", em: "R2" },
+		],
+		shotLabel: "Upload → processing → output grid",
+		problemTitle: "The problem",
+		problem: [
+			"A professional video creator publishing across Instagram and YouTube re-exports the same footage multiple times — different resolutions, aspect ratios, and codec settings per platform. That is <strong>twenty minutes of manual FFmpeg or Premiere work per video</strong>, before any editing happens. For someone who publishes daily, it compounds into hours a week.",
+			"The real requirement was not a transcoder — it was <strong>disappearing the decision</strong>. Upload a source, get back every derivative you need, stored and ready, with no flags to remember and no export queue to babysit.",
+		],
+		architectureTitle: "The pipeline",
+		architectureIntro:
+			"The same core pattern as AmarV4 — signed upload, queue, transcode, R2 — but the fan-out step is more complex: one source becomes five distinct outputs, each with different FFmpeg filter chains and path conventions.",
+		architecture: [
+			{
+				l: "Upload",
+				chips: [
+					{ t: "Signed URL → R2", v: "hot" },
+					{ t: "Direct from client" },
+					{ t: "Server bypassed", v: "cool" },
+				],
+			},
+			{
+				l: "Queue",
+				chips: [
+					{ t: "BullMQ", v: "hot" },
+					{ t: "Hono backend" },
+					{ t: "Redis" },
+				],
+			},
+			{
+				l: "Transcode",
+				chips: [
+					{ t: "FFmpeg", v: "hot" },
+					{ t: "Instagram 9:16 Reel" },
+					{ t: "YouTube Short" },
+					{ t: "HLS segments + master", v: "cool" },
+				],
+			},
+			{
+				l: "Derive",
+				chips: [
+					{ t: "Blur-shot thumbnail", v: "hot" },
+					{ t: "Cover frame extract" },
+					{ t: "Structured R2 paths", v: "cool" },
+				],
+			},
+			{
+				l: "Playback",
+				chips: [
+					{ t: "React Video Player", v: "hot" },
+					{ t: "HLS adaptive" },
+					{ t: "Output grid UI", v: "cool" },
+				],
+			},
+		],
+		decisionsTitle: "Three decisions worth defending",
+		decisions: [
+			{
+				label: "Decision 01",
+				title: "Fan-out as named jobs, not one mega-job",
+				body: "Each output format is a separate BullMQ job. If the Instagram render fails, the HLS segments still complete. The client sees per-format progress and only broken outputs need retrying — not the whole upload.",
+				accent: "accent",
+			},
+			{
+				label: "Decision 02",
+				title: "Structured R2 paths as the delivery contract",
+				body: "Every output lands at a deterministic path: <code>uploads/{id}/hls/master.m3u8</code>, <code>uploads/{id}/reel.mp4</code>, and so on. The frontend never asks the backend &ldquo;where did the files go?&rdquo; — it constructs the URL from the job ID. No extra database round-trip.",
+				accent: "amber",
+			},
+			{
+				label: "Decision 03",
+				title: "Blur-shot thumbnail from FFmpeg, not a design tool",
+				body: "The blurred-background thumbnail — source frame centred on a blurred full-bleed version of itself — is a single FFmpeg filtergraph. It saves the client from opening any image editor and produces a consistent look across every video automatically.",
+				accent: "secondary",
+			},
+		],
+		challengesTitle: "Hardest problems, plainly",
+		challenges: [
+			{
+				label: "Challenge 01",
+				title: "FFmpeg filtergraphs for the blur-shot",
+				body: "The blurred background + centred source composite sounds simple and is not. The filtergraph has to scale the source to two different sizes, blur one, overlay the other with correct gravity and padding — and do all of it in a single pass to keep encode time reasonable.",
+				accent: "accent",
+			},
+			{
+				label: "Challenge 02",
+				title: "Aspect ratio maths for platform crops",
+				body: "Instagram and YouTube Shorts both want 9:16, but a landscape source cropped naively loses the subject. A centre-crop is the safe default, but getting the crop coordinates right across arbitrary source resolutions without distortion took more geometry than expected.",
+				accent: "amber",
+			},
+			{
+				label: "Challenge 03",
+				title: "Progress visibility across five parallel jobs",
+				body: "Five jobs per upload means five status states the UI has to reflect simultaneously. BullMQ has per-job event emitters; wiring them into a coherent &ldquo;this upload is 3/5 done&rdquo; view over SSE was the most fiddly part of the frontend.",
+				accent: "secondary",
+			},
+		],
+		quote:
+			"The client's job is to make good video. PIPE's job is to make sure the format question never enters the room.",
+		quoteAttribution: "Parm, on PIPE",
+	},
+
+	// ════════════════
+	//  EMAILOS  (case study)
+	// ════════════════════════════
+	{
+		slug: "emailos",
+		readTime: "9 min",
+		// {`${CDN}/web/PP1.jpg`}
+		image: `${CDN}/web/projects/emailos.jpg`,
+		heroTitle:
+			"EmailOS — an <em>email layer</em> that captures everything and forgets nothing.",
+		tagline:
+			"Sit in front of Resend or SES, capture every inbound and outbound email, archive it permanently, and give it a searchable inbox.",
+		overlineTags: ["tool", "infra", "concept"],
+		overviewTitle: "Your email provider's <em>30-day limit</em>, removed.",
+		overviewBody:
+			"Resend, SES, Postmark — every transactional email provider expires your logs. EmailOS is a capture-and-archive layer that sits in front of (or alongside) your existing provider: it intercepts outbound sends, receives inbound via webhook, stores everything permanently in Postgres, and gives you a clean searchable inbox UI. Change providers without losing history. Audit any email ever sent from your app.",
+		stats: [
+			{ v: "∞", l: "Retention", em: "∞" },
+			{ v: "0", l: "Provider lock-in", em: "0" },
+			{ v: "2", l: "Flows captured", em: "2" },
+			{ v: "FTS", l: "Search engine", em: "FTS" },
+		],
+		shotLabel: "Inbox + email detail view",
+		problemTitle: "The problem",
+		problem: [
+			"Every transactional email provider expires logs after 30–90 days. For a small SaaS that means <strong>you cannot answer &ldquo;did this user receive their invite email six months ago?&rdquo;</strong> — the record is gone. For compliance, audits, or debugging a subtle delivery bug, that gap is genuinely dangerous.",
+			"The fix sounds simple: just save a copy before you send. The reality is that outbound needs to be proxied or hooked, inbound needs a webhook receiver and an MX setup, and the stored emails need to be <strong>queryable, not just archived</strong>. EmailOS does all three without replacing your existing provider — it augments it.",
+		],
+		architectureTitle: "System architecture",
+		architectureIntro:
+			"Two capture paths — an outbound proxy SDK and an inbound webhook — feed into a single Postgres store. The UI is a read layer over that store. The provider is swappable at any point; the archive is not touched.",
+		architecture: [
+			{
+				l: "Outbound",
+				chips: [
+					{ t: "Thin SDK wrapper", v: "hot" },
+					{ t: "Captures before send" },
+					{ t: "Provider-agnostic", v: "cool" },
+				],
+			},
+			{
+				l: "Inbound",
+				chips: [
+					{ t: "Webhook receiver", v: "hot" },
+					{ t: "Cloudflare Email Routing" },
+					{ t: "MIME parse", v: "cool" },
+				],
+			},
+			{
+				l: "Store",
+				chips: [
+					{ t: "Postgres", v: "hot" },
+					{ t: "Drizzle ORM" },
+					{ t: "Attachments → R2", v: "cool" },
+				],
+			},
+			{
+				l: "Search",
+				chips: [
+					{ t: "Postgres FTS", v: "hot" },
+					{ t: "Subject + body indexed" },
+					{ t: "Ranked results", v: "cool" },
+				],
+			},
+			{
+				l: "Inbox UI",
+				chips: [
+					{ t: "Next.js 15", v: "hot" },
+					{ t: "Hono API" },
+					{ t: "Thread view", v: "cool" },
+				],
+			},
+		],
+		decisionsTitle: "Three decisions worth defending",
+		decisions: [
+			{
+				label: "Decision 01",
+				title: "Capture at the SDK level, not the provider level",
+				body: "Capturing via provider webhooks means you depend on the provider delivering those webhooks — and you lose the archive if you switch providers. A thin wrapper around the send call captures <em>before</em> the provider is ever involved, so the archive is truly provider-independent.",
+				accent: "accent",
+			},
+			{
+				label: "Decision 02",
+				title: "Attachments to R2, metadata to Postgres",
+				body: "Storing full email blobs in Postgres is an antipattern that makes the database huge and slow. EmailOS stores headers, subject, body text, and thread relationships in Postgres — where they are queryable — and offloads attachment binaries to R2 with a foreign key. Search stays fast; storage stays cheap.",
+				accent: "amber",
+			},
+			{
+				label: "Decision 03",
+				title: "Postgres FTS over a dedicated search service",
+				body: "Email search is overwhelmingly subject-line and sender lookups, not full-document relevance ranking. Postgres <code>tsvector</code> handles that comfortably and keeps the stack to one datastore. Meilisearch or Typesense would be premature for the corpus size EmailOS targets.",
+				accent: "secondary",
+			},
+		],
+		challengesTitle: "Hardest problems, plainly",
+		challenges: [
+			{
+				label: "Challenge 01",
+				title: "MIME parsing is a minefield",
+				body: "Real-world emails arrive as multi-part MIME trees — HTML body, plain-text fallback, inline images with Content-ID references, attachments with mismatched charset declarations. Parsing them into a clean stored representation without losing any part required careful handling of every edge case the standard allows and several it does not.",
+				accent: "accent",
+			},
+			{
+				label: "Challenge 02",
+				title: "Threading without a thread ID",
+				body: "Email threading relies on <code>In-Reply-To</code> and <code>References</code> headers — which not every sender sets correctly. Building a thread view that degrades gracefully to subject-line matching when headers are absent, without creating false threads, was more logic than expected.",
+				accent: "amber",
+			},
+			{
+				label: "Challenge 03",
+				title: "Idempotent inbound delivery",
+				body: "Webhook providers retry on timeout. If the receiver is slow, the same email arrives twice. The ingest path deduplicates on <code>Message-ID</code> with an upsert, so replays are safe — but getting that upsert right under concurrent delivery took care with Drizzle's conflict clauses.",
+				accent: "secondary",
+			},
+		],
+		quote:
+			"Your email provider owns your logs for 30 days. After that, you never sent those emails. EmailOS fixes that in one SDK line.",
+		quoteAttribution: "Parm, on EmailOS",
 	},
 ];
 
