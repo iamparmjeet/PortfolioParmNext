@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Newsreader, Public_Sans } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import { Suspense } from "react";
 import Footer from "@/components/layout/footer";
 import Nav from "@/components/layout/nav";
-import { PostHogProvider } from "@/components/providers/posthog-providers";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE, SITE_URL } from "@/constants/site";
 import { DEFAULT_PALETTE, PALETTE_IDS } from "@/constants/themes";
@@ -81,22 +81,25 @@ export default function RootLayout({
 		>
 			<body className="font-newsreader">
 				<Suspense fallback={null}>
-					<PostHogProvider>
-						<ThemeProvider
-							attribute="class"
-							themes={PALETTE_IDS}
-							defaultTheme={DEFAULT_PALETTE}
-							enableSystem={false}
-							enableColorScheme={false}
-							disableTransitionOnChange
-							storageKey="palette"
-						>
-							<Nav />
-							{children}
-							<Footer />
-						</ThemeProvider>
-					</PostHogProvider>
+					<ThemeProvider
+						attribute="class"
+						themes={PALETTE_IDS}
+						defaultTheme={DEFAULT_PALETTE}
+						enableSystem={false}
+						enableColorScheme={false}
+						disableTransitionOnChange
+						storageKey="palette"
+					>
+						<Nav />
+						{children}
+						<Footer />
+					</ThemeProvider>
 				</Suspense>
+				<Script
+					src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+					data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+					strategy="afterInteractive"
+				/>
 			</body>
 		</html>
 	);

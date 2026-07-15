@@ -31,7 +31,7 @@ export function CurrentActivity() {
 								</span>
 								<div>
 									<div className="font-display font-medium text-[18px] text-ink leading-[1.4]">
-										AmarV4 — Video portfolio
+										Amar — Video portfolio
 									</div>
 									<div className="mt-0.75 text-[13.5px] text-ink-muted leading-[1.45]">
 										HLS pipeline + cross-player sync for a client launch.
@@ -88,19 +88,7 @@ export function CurrentActivity() {
 									</div>
 								</div>
 							</li>
-							<li className="flex items-start gap-3.5 border-rule-soft border-b py-3.5 last:border-b-0">
-								<span className="w-10.5 shrink-0 pt-1 text-right font-mono text-[10.5px] text-ink-muted tracking-[0.08em]">
-									DSA
-								</span>
-								<div>
-									<div className="font-display font-medium text-[18px] text-ink leading-[1.4]">
-										Striver A-to-Z (finally)
-									</div>
-									<div className="mt-0.75 text-[13.5px] text-ink-muted leading-[1.45]">
-										For interview confidence, not for vibes.
-									</div>
-								</div>
-							</li>
+
 							<li className="flex items-start gap-3.5 border-rule-soft border-b py-3.5 last:border-b-0">
 								<span className="w-10.5 shrink-0 pt-1 text-right font-mono text-[10.5px] text-ink-muted tracking-[0.08em]">
 									TS

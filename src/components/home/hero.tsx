@@ -55,7 +55,7 @@ export function Hero() {
 						<div className="relative size-75 overflow-hidden rounded-full bg-rule-soft">
 							<Image
 								src={`${CDN}/web/PP1.jpg`}
-								alt="Hero Image"
+								alt="Photo of Parmjeet Mishra"
 								width="300"
 								height="300"
 								className="rounded-full object-cover"
