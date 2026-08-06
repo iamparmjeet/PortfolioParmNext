@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
 				hostname: "assets.parmjeetmishra.com",
 			},
 		],
-		qualities: [75, 90],
+		qualities: [75, 90, 95],
 	},
 };
 

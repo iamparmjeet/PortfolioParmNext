@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
 		n: "01",
 		title: "KeyHQ",
 		italic: "a rental SaaS",
-		image: `${CDN}/web/projects/rentwise.jpg`,
+		image: `${CDN}/web/projects/keyhq-v2.jpg`,
 		desc: "Multi-tenant property management. Three user roles, role-based dashboards, tenant invite flow built on Better Auth + Hono RPC + Drizzle. Shares a Turborepo with Schooly.",
 		tags: ["active", "saas", "flagship"],
 		stack: [
@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
 		title: "Schooly",
 		image: `${CDN}/web/projects/schooly.jpg`,
 		italic: "a school platform",
-		desc: "Multi-tenant school management — attendance, fees, report cards, and parent communication. Four roles over tenant-isolated data, sharing auth/ui/db packages with Rentwise in one Turborepo.",
+		desc: "Multi-tenant school management — attendance, fees, report cards, and parent communication. Four roles over tenant-isolated data, sharing auth/ui/db packages with KeyHQ in one Turborepo.",
 		tags: ["active", "saas"],
 		stack: [
 			"Next.js 16",

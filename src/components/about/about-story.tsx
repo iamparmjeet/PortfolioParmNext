@@ -71,7 +71,7 @@ export function AboutStory() {
 
 			<div className="mt-10 flex flex-wrap gap-2.5">
 				<Link
-					href="/work/rentwise"
+					href="/work/keyhq"
 					className="group inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-6 py-3.25 font-body font-medium text-[14.5px] text-paper no-underline transition-all duration-150 hover:border-accent hover:bg-accent"
 				>
 					Read the case study{" "}

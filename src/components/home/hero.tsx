@@ -38,7 +38,7 @@ export function Hero() {
 								</span>
 							</Link>
 							<Link
-								href="/work/rentwise"
+								href="/work/keyhq"
 								className="inline-flex items-center gap-2 rounded-full border border-ink px-6 py-3.25 font-body font-medium text-[14.5px] text-ink no-underline transition-all duration-150 hover:bg-ink hover:text-paper"
 							>
 								Read a case study

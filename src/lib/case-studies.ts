@@ -67,17 +67,17 @@ export interface CaseStudy {
 export const CASE_STUDIES: CaseStudy[] = [
 	// ───────────────────────────────────
 	{
-		slug: "rentwise",
+		slug: "keyhq",
 		readTime: "12 min",
-		image: `${CDN}/web/projects/rentwise.jpg`,
+		image: `${CDN}/web/projects/keyhq-v2.jpg`,
 		heroTitle:
-			"Rentwise — taking a <em>multi-tenant</em> rental SaaS from zero to production.",
+			"KeyHQ — taking a <em>multi-tenant</em> rental SaaS from zero to production.",
 		tagline:
 			"Architecture decisions, real bugs, and what I would do differently if I started over tomorrow.",
 		overlineTags: ["multi-tenant", "built solo", "monorepo"],
 		overviewTitle: "A property platform <em>for the in-between</em>",
 		overviewBody:
-			"Small-to-mid landlords in India do not have time for enterprise software, and most lightweight tools skip Indian-market specifics. Rentwise sits between the two — built solo from schema design through deployment, and it shares a Turborepo with <strong>Schooly</strong> so auth, UI, and database packages are written once.",
+			"Small-to-mid landlords in India do not have time for enterprise software, and most lightweight tools skip Indian-market specifics. KeyHQ sits between the two — built solo from schema design through deployment, and it shares a Turborepo with <strong>Schooly</strong> so auth, UI, and database packages are written once.",
 		stats: [
 			{ v: "3", l: "User roles" },
 			{ v: "8+", l: "Core features", em: "8" },
@@ -206,12 +206,12 @@ export const CASE_STUDIES: CaseStudy[] = [
 		heroTitle:
 			"Schooly — a <em>multi-tenant</em> school platform, built by a former teacher.",
 		tagline:
-			"Twelve years in a classroom turned into software for the people still in one. Shares a monorepo with Rentwise.",
+			"Twelve years in a classroom turned into software for the people still in one. Shares a monorepo with KeyHQ.",
 		image: `${CDN}/web/projects/schooly.jpg`,
 		overlineTags: ["multi-tenant", "monorepo", "edu"],
 		overviewTitle: "School operations, <em>without the clipboard</em>",
 		overviewBody:
-			"Schooly is a multi-tenant platform for small and mid-sized schools — attendance, fees, report cards, and parent communication in one place. It lives in the same Turborepo as <strong>Rentwise</strong>, so both apps share the auth, UI, and database packages. I taught Physics and Chemistry for twelve years; this is the tool I wish the front office had.",
+			"Schooly is a multi-tenant platform for small and mid-sized schools — attendance, fees, report cards, and parent communication in one place. It lives in the same Turborepo as <strong>KeyHQ</strong>, so both apps share the auth, UI, and database packages. I taught Physics and Chemistry for twelve years; this is the tool I wish the front office had.",
 		stats: [
 			{ v: "4", l: "User roles" },
 			{ v: "3", l: "Schools onboard", em: "3" },
@@ -222,7 +222,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 		problemTitle: "The problem",
 		problem: [
 			"Small schools run on <strong>registers, photocopies, and the one staff member who knows the timetable</strong>. Attendance is paper, fee receipts are a carbon book, and report cards are a spreadsheet that lives on a single laptop. Enterprise ERPs exist, but they are priced and shaped for institutions ten times the size.",
-			"The role model is genuinely complex: <strong>admins</strong> run the school, <strong>teachers</strong> own their classes, <strong>students</strong> see their own record, and <strong>parents</strong> see their child's. Each role is a different surface over the same tenant-isolated data — the exact problem Rentwise already solved once.",
+			"The role model is genuinely complex: <strong>admins</strong> run the school, <strong>teachers</strong> own their classes, <strong>students</strong> see their own record, and <strong>parents</strong> see their child's. Each role is a different surface over the same tenant-isolated data — the exact problem KeyHQ already solved once.",
 		],
 		architectureTitle: "System architecture",
 		architectureIntro:
@@ -266,7 +266,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 				chips: [
 					{ t: "Turborepo", v: "hot" },
 					{ t: "Remote cache" },
-					{ t: "Shared with Rentwise", v: "cool" },
+					{ t: "Shared with KeyHQ", v: "cool" },
 				],
 			},
 		],
@@ -275,7 +275,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 			{
 				label: "Decision 01",
 				title: "Promote tenancy to a shared package",
-				body: "Rentwise and Schooly both need &ldquo;isolate every query by tenant.&rdquo; Instead of copying the pattern, the row-scoping helpers and Drizzle middleware became <code>shared/db</code>. One place to audit, two apps that benefit.",
+				body: "KeyHQ and Schooly both need &ldquo;isolate every query by tenant.&rdquo; Instead of copying the pattern, the row-scoping helpers and Drizzle middleware became <code>shared/db</code>. One place to audit, two apps that benefit.",
 				accent: "accent",
 			},
 			{
@@ -296,13 +296,13 @@ export const CASE_STUDIES: CaseStudy[] = [
 			{
 				label: "Challenge 01",
 				title: "Extracting shared packages without a big-bang refactor",
-				body: "Pulling auth and db out of Rentwise into the monorepo, <em>while Rentwise was already deployed</em>, meant moving code without changing its behaviour. The move was done in small, type-checked steps with the build as the safety net.",
+				body: "Pulling auth and db out of KeyHQ into the monorepo, <em>while KeyHQ was already deployed</em>, meant moving code without changing its behaviour. The move was done in small, type-checked steps with the build as the safety net.",
 				accent: "accent",
 			},
 			{
 				label: "Challenge 02",
 				title: "A fourth role doubles the guard matrix",
-				body: "Rentwise had three roles; Schooly has four, and parent ↔ student ↔ class relationships are many-to-many. Modelling &ldquo;a parent of a student in this class&rdquo; cleanly took more schema thought than the rest of the app combined.",
+				body: "KeyHQ had three roles; Schooly has four, and parent ↔ student ↔ class relationships are many-to-many. Modelling &ldquo;a parent of a student in this class&rdquo; cleanly took more schema thought than the rest of the app combined.",
 				accent: "amber",
 			},
 			{

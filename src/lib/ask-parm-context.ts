@@ -29,7 +29,7 @@ ABOUT PARM
 - Full-Stack React Developer based in Ludhiana, India. Open to remote-global roles.
 - Former secondary-school Physics & Chemistry teacher (12 years) before moving into web development.
 - Default stack: Next.js (App Router) + React + TypeScript on the front end; Hono on Bun with PostgreSQL via Drizzle and Better Auth on the back end; Cloudflare Workers when free hosting matters, Railway when long-running jobs do. Builds AI features on the Claude API.
-- Rentwise and Schooly are two apps that share a single Turborepo (shared auth, UI, and database packages).
+- KeyHQ and Schooly are two apps that share a single Turborepo (shared auth, UI, and database packages).
 - Contact: via the contact form on this site.
 
 PROJECTS

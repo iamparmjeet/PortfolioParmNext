@@ -58,7 +58,7 @@ export const timeline = [
 	{
 		year: "2025 — PRESENT",
 		title: "Full-Stack Developer · AI focus",
-		desc: "Building Rentwise, AmarV4, and AI tools. Targeting remote-global roles and Indian product startups.",
+		desc: "Building KeyHQ, AmarV4, and AI tools. Targeting remote-global roles and Indian product startups.",
 		dim: false,
 	},
 	{
@@ -158,7 +158,7 @@ export const experience = [
 		title: "Full-Stack Developer",
 		sub: "freelance + self-directed",
 		org: "Independent · Remote from Ludhiana, IN",
-		desc: "Building Rentwise (multi-tenant SaaS), AmarV4 (HLS video platform), and a suite of AI applications using the Claude API and Vercel AI SDK. Targeting remote-global roles while shipping real products.",
+		desc: "Building KeyHQ (multi-tenant SaaS), AmarV4 (HLS video platform), and a suite of AI applications using the Claude API and Vercel AI SDK. Targeting remote-global roles while shipping real products.",
 		tags: [
 			"Next.js 16",
 			"React 19",

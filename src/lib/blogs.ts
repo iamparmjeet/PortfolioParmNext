@@ -32,7 +32,7 @@ export const BLOGS: Blog[] = [
 			{
 				type: "p",
 				content:
-					"When I started building Rentwise — a multi-tenant rental SaaS — I needed a backend framework. The obvious choice was Express. Everyone knows Express. Every tutorial uses Express. Every Stack Overflow answer assumes Express.",
+					"When I started building KeyHQ — a multi-tenant rental SaaS — I needed a backend framework. The obvious choice was Express. Everyone knows Express. Every tutorial uses Express. Every Stack Overflow answer assumes Express.",
 			},
 			{
 				type: "p",
@@ -59,7 +59,7 @@ export const BLOGS: Blog[] = [
 			{
 				type: "p",
 				content:
-					"The thing that actually made me commit to Hono for Rentwise was the <code>hc</code> client — Hono's built-in RPC system. Here is what it does:",
+					"The thing that actually made me commit to Hono for KeyHQ was the <code>hc</code> client — Hono's built-in RPC system. Here is what it does:",
 			},
 			{
 				type: "pre",
@@ -105,7 +105,7 @@ const { properties } = await res.json() // ← fully typed!`,
 			{
 				type: "p",
 				content:
-					"For Rentwise specifically, the RPC client alone saved me more time than the ecosystem cost me. Easy decision in hindsight.",
+					"For KeyHQ specifically, the RPC client alone saved me more time than the ecosystem cost me. Easy decision in hindsight.",
 			},
 		],
 	},
@@ -118,12 +118,12 @@ const { properties } = await res.json() // ← fully typed!`,
 		date: "May 2026",
 		readTime: "6 min",
 		excerpt:
-			"The bug that broke Rentwise's invite flow taught me something important about where auth actually needs to live in an App Router project.",
+			"The bug that broke KeyHQ's invite flow taught me something important about where auth actually needs to live in an App Router project.",
 		sections: [
 			{
 				type: "p",
 				content:
-					"Rentwise has three user roles — Owner, Tenant, Admin. Each role sees a completely different dashboard. Getting this wrong does not just break the UI — it potentially exposes one tenant's data to another. So I took auth seriously.",
+					"KeyHQ has three user roles — Owner, Tenant, Admin. Each role sees a completely different dashboard. Getting this wrong does not just break the UI — it potentially exposes one tenant's data to another. So I took auth seriously.",
 			},
 			{
 				type: "p",

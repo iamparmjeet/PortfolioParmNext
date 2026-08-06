@@ -9,7 +9,7 @@ interface ChatMessage {
 
 const SUGGESTIONS = [
 	"What backend stack does Parm reach for?",
-	"Tell me about Rentwise.",
+	"Tell me about KeyHQ.",
 	"What's the deal with Schooly?",
 ];
 

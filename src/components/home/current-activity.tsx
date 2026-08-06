@@ -18,7 +18,7 @@ export function CurrentActivity() {
 								</span>
 								<div>
 									<div className="font-display font-medium text-[18px] text-ink leading-[1.4]">
-										Rentwise — SaaS
+										KeyHQ — SaaS
 									</div>
 									<div className="mt-0.75 text-[13.5px] text-ink-muted leading-[1.45]">
 										Wrapping multi-tenant invite flow + tightening role guards.
@@ -111,7 +111,7 @@ export function CurrentActivity() {
 										Monorepo patterns with Turborepo
 									</div>
 									<div className="mt-0.75 text-[13.5px] text-ink-muted leading-[1.45]">
-										Rentwise + Portfolio V2 both want shared packages.
+										KeyHQ + Portfolio V2 both want shared packages.
 									</div>
 								</div>
 							</li>
