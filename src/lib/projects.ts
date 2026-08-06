@@ -18,9 +18,9 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
 	{
-		id: "rentwise",
+		id: "keyhq",
 		n: "01",
-		title: "Rentwise",
+		title: "KeyHQ",
 		italic: "a rental SaaS",
 		image: `${CDN}/web/projects/rentwise.jpg`,
 		desc: "Multi-tenant property management. Three user roles, role-based dashboards, tenant invite flow built on Better Auth + Hono RPC + Drizzle. Shares a Turborepo with Schooly.",
