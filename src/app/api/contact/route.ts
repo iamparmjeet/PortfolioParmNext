@@ -3,37 +3,10 @@ import { type NextRequest, NextResponse } from "next/server";
 import { contactSchema, HONEYPOT_FIELD, MIN_SUBMIT_MS } from "@/lib/contact";
 import { contactRatelimit } from "@/lib/ratelimit";
 import { clientIp } from "@/lib/request-ip";
-
-const TURNSTILE_VERIFY_URL =
-	"https://challenges.cloudflare.com/turnstile/v0/siteverify";
-
-async function verifyTurnstile(token: string, ip: string | null) {
-	const secret = process.env.TURNSTILE_SECRET_KEY;
-
-	// No secret configured (e.g. local dev) → skip verification rather than
-	// hard-fail, but make the gap loud in the logs.
-	if (!secret) {
-		console.warn("TURNSTILE_SECRET_KEY is not set — skipping captcha check.");
-		return true;
-	}
-
-	if (!token) {
-		return false;
-	}
-
-	const body = new URLSearchParams({ secret, response: token });
-	if (ip) {
-		body.append("remoteip", ip);
-	}
-
-	try {
-		const res = await fetch(TURNSTILE_VERIFY_URL, { method: "POST", body });
-		const data = (await res.json()) as { success: boolean };
-		return data.success === true;
-	} catch {
-		return false;
-	}
-}
+import {
+	CONTACT_TURNSTILE_ACTION,
+	verifyTurnstileToken,
+} from "@/lib/turnstile";
 
 export async function POST(request: NextRequest) {
 	let payload: Record<string, unknown>;
@@ -80,12 +53,17 @@ export async function POST(request: NextRequest) {
 		console.warn("Upstash not configured — contact rate limiting is disabled.");
 	}
 
-	// 4. Captcha — verify the Turnstile token server-side.
-	const human = await verifyTurnstile(String(payload.turnstileToken ?? ""), ip);
+	// 4. Captcha — verify the Turnstile token server-side via canonical
+	// siteverify (success + action + hostname). See src/lib/turnstile.ts.
+	const human = await verifyTurnstileToken(
+		payload.turnstileToken,
+		ip,
+		CONTACT_TURNSTILE_ACTION,
+	);
 	if (!human) {
 		return NextResponse.json(
 			{ error: "Captcha verification failed. Please try again." },
-			{ status: 400 },
+			{ status: 403 },
 		);
 	}
 

@@ -30,6 +30,7 @@ const controlClass =
 const labelClass = "font-body text-sm font-semibold text-ink";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+const TURNSTILE_ACTION = "contact";
 
 export function ContactForm() {
 	const [submitted, setSubmitted] = useState(false);
@@ -50,16 +51,24 @@ export function ContactForm() {
 		},
 		onSubmit: async ({ value }) => {
 			setServerError(null);
-			const res = await fetch("/api/contact", {
-				method: "POST",
-				headers: { "content-type": "application/json" },
-				body: JSON.stringify({
-					...value,
-					[HONEYPOT_FIELD]: honeypotRef.current?.value ?? "",
-					elapsedMs: Date.now() - mountedAtRef.current,
-					turnstileToken: token,
-				}),
-			});
+			let res: Response;
+			try {
+				res = await fetch("/api/contact", {
+					method: "POST",
+					headers: { "content-type": "application/json" },
+					body: JSON.stringify({
+						...value,
+						[HONEYPOT_FIELD]: honeypotRef.current?.value ?? "",
+						elapsedMs: Date.now() - mountedAtRef.current,
+						turnstileToken: token,
+					}),
+				});
+			} catch {
+				setServerError("Something went wrong. Please try again.");
+				turnstileRef.current?.reset();
+				setToken("");
+				return;
+			}
 
 			if (!res.ok) {
 				const data = (await res.json().catch(() => null)) as {
@@ -68,12 +77,16 @@ export function ContactForm() {
 				setServerError(
 					data?.error ?? "Something went wrong. Please try again.",
 				);
+				// Token is single-use — reset widget before allowing a retry
+				// when the page stays active (spec: window.turnstile.reset(widgetId)).
 				turnstileRef.current?.reset();
 				setToken("");
 				return;
 			}
 
 			setSubmitted(true);
+			// Token consumed — clear it; widget will reset on "Send another".
+			setToken("");
 		},
 	});
 
@@ -95,6 +108,7 @@ export function ContactForm() {
 					className="mt-1 h-10 rounded-[10px] px-4 text-sm"
 					onClick={() => {
 						form.reset();
+						turnstileRef.current?.reset();
 						setToken("");
 						setServerError(null);
 						mountedAtRef.current = Date.now();
@@ -287,7 +301,11 @@ export function ContactForm() {
 					<Turnstile
 						ref={turnstileRef}
 						siteKey={TURNSTILE_SITE_KEY}
-						options={{ theme: "auto", size: "flexible" }}
+						options={{
+							theme: "auto",
+							size: "flexible",
+							action: TURNSTILE_ACTION,
+						}}
 						onSuccess={setToken}
 						onError={() => setToken("")}
 						onExpire={() => setToken("")}
