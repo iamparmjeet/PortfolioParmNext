@@ -12,10 +12,6 @@ export default function Nav() {
 	const [open, setOpen] = useState(false);
 	const pathname = usePathname();
 
-	useEffect(() => {
-		setOpen(false);
-	}, [pathname]);
-
 	// Prevent scroll
 
 	useEffect(() => {
