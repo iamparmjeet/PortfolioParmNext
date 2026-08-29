@@ -8,14 +8,17 @@ import {
 
 describe("turnstile verification", () => {
 	const originalEnv = process.env;
+	const originalFetch = globalThis.fetch;
 
 	beforeEach(() => {
 		process.env = { ...originalEnv };
+		globalThis.fetch = originalFetch;
 		vi.restoreAllMocks();
 	});
 
 	afterEach(() => {
 		process.env = originalEnv;
+		globalThis.fetch = originalFetch;
 	});
 
 	it("resolves secret prioritizing TURNSTILE_SECRET over TURNSTILE_SECRET_KEY", () => {
@@ -94,7 +97,7 @@ describe("turnstile verification", () => {
 				hostname: "parmjeetmishra.com",
 			}),
 		});
-		vi.stubGlobal("fetch", fetchMock);
+		globalThis.fetch = fetchMock as unknown as typeof fetch;
 
 		const result = await verifyTurnstileToken(
 			"valid-token",
@@ -118,7 +121,7 @@ describe("turnstile verification", () => {
 				hostname: "parmjeetmishra.com",
 			}),
 		});
-		vi.stubGlobal("fetch", fetchMock);
+		globalThis.fetch = fetchMock as unknown as typeof fetch;
 
 		const result = await verifyTurnstileToken(
 			"valid-token",
