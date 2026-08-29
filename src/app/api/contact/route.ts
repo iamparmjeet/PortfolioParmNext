@@ -1,6 +1,11 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 import { contactSchema, HONEYPOT_FIELD, MIN_SUBMIT_MS } from "@/lib/contact";
+import {
+	renderOwnerNotificationHtml,
+	renderSenderConfirmationHtml,
+} from "@/lib/email-templates";
 import { contactRatelimit } from "@/lib/ratelimit";
 import { clientIp } from "@/lib/request-ip";
 import {
@@ -76,8 +81,70 @@ export async function POST(request: NextRequest) {
 		);
 	}
 
-	// TODO: deliver the message (Resend, email, DB, Slack…).
-	console.info("Contact submission:", result.data);
+	const data = result.data;
+	const apiKey = process.env.RESEND_API_KEY;
+	const recipientEmail =
+		process.env.CONTACT_EMAIL || "iamparmjeetmishra@gmail.com";
+
+	if (apiKey) {
+		const resend = new Resend(apiKey);
+		const fromEmail =
+			process.env.RESEND_FROM_EMAIL ||
+			"Portfolio Contact <onboarding@resend.dev>";
+		const senderReplyFrom =
+			process.env.RESEND_FROM_EMAIL ||
+			"Parmjeet Mishra <onboarding@resend.dev>";
+
+		const plainText = [
+			`Name: ${data.name}`,
+			`Email: ${data.email}`,
+			`Inquiry Type: ${data.inquiryType}`,
+			data.company ? `Company: ${data.company}` : null,
+			`\nMessage:\n${data.message}`,
+		]
+			.filter(Boolean)
+			.join("\n");
+
+		// 1. Deliver notification to site owner
+		const { error: ownerError } = await resend.emails.send({
+			from: fromEmail,
+			to: recipientEmail,
+			subject: `New inquiry from ${data.name} [${data.inquiryType}]`,
+			text: plainText,
+			html: renderOwnerNotificationHtml(data),
+			replyTo: data.email,
+		});
+
+		if (ownerError) {
+			console.error("Resend delivery failed:", ownerError);
+			return NextResponse.json(
+				{ error: "Failed to send your message. Please try again later." },
+				{ status: 500 },
+			);
+		}
+
+		// 2. Send confirmation to sender (safe try/catch so sandbox limits don't fail the submission)
+		try {
+			await resend.emails.send({
+				from: senderReplyFrom,
+				to: data.email,
+				subject: "Thanks for reaching out — Parmjeet Mishra",
+				text: `Hi ${data.name},\n\nThank you for reaching out! I've received your message regarding "${data.inquiryType}" and will get back to you within 4–8 hours.\n\nBest,\nParmjeet Mishra\nhttps://parmjeetmishra.com`,
+				html: renderSenderConfirmationHtml(data),
+			});
+		} catch (senderErr) {
+			console.warn(
+				"Sender confirmation auto-reply skipped or failed:",
+				senderErr,
+			);
+		}
+	} else {
+		console.warn(
+			"RESEND_API_KEY is not set — message was not delivered via email.",
+		);
+	}
+
+	console.info("Contact submission processed:", result.data);
 
 	return NextResponse.json({ ok: true });
 }
