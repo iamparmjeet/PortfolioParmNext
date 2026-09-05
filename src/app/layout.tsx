@@ -32,6 +32,50 @@ const jetbrainsMono = JetBrains_Mono({
 	display: "swap",
 });
 
+// Structured data for search engines and LLMs grounding answers about Parm.
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "Person",
+			name: SITE.name,
+			url: SITE_URL,
+			jobTitle: "Full-Stack Developer",
+			description: SITE.description,
+			email: "mailto:iamparmjeetmishra@gmail.com",
+			address: {
+				"@type": "PostalAddress",
+				addressLocality: "Ludhiana",
+				addressRegion: "Punjab",
+				addressCountry: "IN",
+			},
+			sameAs: [
+				"https://github.com/iamparmjeet",
+				"https://linkedin.com/in/parmjeetmishra",
+				"https://x.com/iamparmjeet",
+			],
+			knowsAbout: [
+				"React",
+				"Next.js",
+				"TypeScript",
+				"Hono",
+				"PostgreSQL",
+				"Drizzle ORM",
+				"AI integration",
+				"Claude API",
+				"RAG",
+			],
+		},
+		{
+			"@type": "WebSite",
+			name: SITE.name,
+			url: SITE_URL,
+			description: SITE.description,
+			inLanguage: "en",
+		},
+	],
+};
+
 export const metadata: Metadata = {
 	metadataBase: new URL(SITE_URL),
 	title: {
@@ -80,6 +124,11 @@ export default function RootLayout({
 			className={`${newsreader.variable} ${publicSans.variable} ${jetbrainsMono.variable}`}
 		>
 			<body className="font-newsreader">
+				<script
+					type="application/ld+json"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: static developer-authored JSON-LD, no user input
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				/>
 				<Suspense fallback={null}>
 					<ThemeProvider
 						attribute="class"
