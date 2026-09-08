@@ -13,7 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		"/blog",
 		"/resume",
 		"/contact",
-		"/omarchy/privacy",
+		"/omarchy",
+		"/omarchy/parm.clock",
+		"/omarchy/parm.clock/privacy",
 	].map((path) => ({
 		url: `${SITE_URL}${path}`,
 		lastModified: now,
