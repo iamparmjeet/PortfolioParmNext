@@ -139,9 +139,11 @@ export default function RootLayout({
 						disableTransitionOnChange
 						storageKey="palette"
 					>
-						<Nav />
-						{children}
-						<Footer />
+						<div className="flex min-h-screen flex-col">
+							<Nav />
+							<main className="flex-1">{children}</main>
+							<Footer />
+						</div>
 					</ThemeProvider>
 				</Suspense>
 				<Script
