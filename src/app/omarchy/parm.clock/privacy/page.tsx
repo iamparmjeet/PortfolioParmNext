@@ -19,6 +19,7 @@ const SECTIONS: { heading: string; body: string[] }[] = [
 			"Your Google Calendar data is used only to display your events in the desktop widget (month, week, and upcoming views) and to create, edit, and delete events when you explicitly use the widget's add, edit, and delete controls.",
 			"Your Google Tasks data is used only to display tasks due on each day alongside your events and to add, complete, and delete tasks when you explicitly use the widget's task controls.",
 			"Google user data is never used for advertising, never sold, never used for profiling or analytics, and never used to train models. The app's use of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements.",
+			"No AI processing: your Google user data is never sent to any third-party AI service, aggregator, gateway, or model, and no AI model — self-hosted or otherwise — is used anywhere in this app.",
 		],
 	},
 	{
